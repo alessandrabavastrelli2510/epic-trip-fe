@@ -1,0 +1,41 @@
+{
+    "package": [
+      {
+        "id": 8,
+        "package_duration": 3,
+        "type": "city_tour",
+        "country": "Turkey",
+        "city": "Istanbul",
+        "price_range": "$$",
+        "title": "Tour della Città di Istanbul 3 Giorni - $$",
+        "description": "Un tour completo dei monumenti iconici e dei tesori nascosti di Istanbul in 3 giorni.",
+        "max_num_people": 10,
+        "active": true
+      },
+      {
+        "id": 51,
+        "package_duration": 3,
+        "type": "adventure",
+        "country": "USA",
+        "city": "New York",
+        "price_range": "$$$",
+        "title": "Avventura a New York 3 Giorni - $$$",
+        "description": "Un viaggio avventuroso attraverso le strade affollate di New York in 3 giorni.",
+        "max_num_people": 10,
+        "active": true
+      },
+      {
+        "id": 62,
+        "package_duration": 3,
+        "type": "relax",
+        "country": "USA",
+        "city": "New York",
+        "price_range": "$$",
+        "title": "Relax a New York 3 Giorni - $$",
+        "description": "Prenditi una pausa e rilassati nei luoghi tranquilli di New York City per 3 giorni.",
+        "max_num_people": 10,
+        "active": true
+      }
+    ]
+  }
+  
