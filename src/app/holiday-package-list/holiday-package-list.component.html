@@ -1,0 +1,11 @@
+<section>
+    <h3>Seleziona la città per cui vuoi visualizzare tutti i pacchetti disponibili!</h3>
+    <form #searchByCityForm="ngForm" (ngSubmit)="onSubmit(searchByCityForm)">
+        <label for="city">Città:</label>
+        <select name="city" id="city" required ngModel>
+            <option value="" disabled selected>Scegli una città</option>
+        @for (city of cities; track city) {<option [value]="city">{{city}}</option>}
+        </select>
+        <button type="submit">Cerca</button>
+    </form>
+</section>
