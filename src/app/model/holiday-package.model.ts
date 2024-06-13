@@ -12,4 +12,4 @@ export interface HolidayPackage {
     maxPeopleCount: number;
     imagePath: string;
     attractionVisits: AttractionVisit[];
-  }
+}

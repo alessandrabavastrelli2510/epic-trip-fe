@@ -1,1 +1,18 @@
-<p>survey works!</p>
+<section>
+    <h3>Rispondi a queste domande per trovare la scelta più adatta per te!</h3>
+    <form #sendSurveyForm="ngForm" (ngSubmit)="onSubmit(sendSurveyForm)">
+        <ol>
+             
+        @for (question of questions; track question.id) {
+           <li>
+
+           </li>
+        }
+        </ol>
+        <select name="city" id="city" required ngModel>
+            <option value="" disabled selected>Scegli una città</option>
+        
+        </select>
+        <button type="submit">Cerca</button>
+    </form>
+</section>

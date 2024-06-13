@@ -32,7 +32,8 @@ export class HolidayPackageListComponent implements OnInit{
     });
   }
 
-  onSubmit(form: NgForm){
+  onSubmit(form: NgForm): void{
+    console.log("ciao");
     this.holidayPackageService.getPackagesByCity(form.value.city).subscribe({
       next: data => {
         this.holidayPackages = data;

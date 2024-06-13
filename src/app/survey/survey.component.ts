@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './survey.component.css'
 })
 export class SurveyComponent {
-
 }
+
+
