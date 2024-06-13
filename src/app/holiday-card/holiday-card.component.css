@@ -1,13 +1,8 @@
-/* General Styles */
-body {
+article {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f9;
     color: #333;
     margin: 0;
     padding: 0;
-}
-
-article {
     background-color: #fff;
     margin: 20px auto;
     padding: 20px;

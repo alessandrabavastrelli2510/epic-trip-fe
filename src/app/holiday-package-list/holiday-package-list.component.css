@@ -81,7 +81,7 @@ section {
     background-color: #fff;
     margin: 20px auto;
     padding: 20px;
-    max-width: 800px;
+    /*max-width: 800px;*/
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -145,4 +145,14 @@ select:focus {
     outline: none;
     border-color: #2980b9;
     box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+#packages{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+}
+@media(max-width: 1000px){
+    #packages{
+        grid-template-columns: 1fr;
+    }
 }
