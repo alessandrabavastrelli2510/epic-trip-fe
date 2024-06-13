@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 //import { AttractionVisit } from './attraction-visit/attraction-visit.component';
-import { HolidayPackageListComponent } from './holiday-package-list/holiday-package-list.component';
+import { HolidayPackage } from '../model/holiday-package.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HolidayPackage {
-  private apiUrl = 'http://localhost:8080/package';
+export class HolidayPackageService {
+  private packageUrl = 'http://localhost:8080/package';
   private apiUrlForCities = "http://localhost:8080/package/city";
   constructor(private http: HttpClient) {
     }
@@ -22,7 +22,8 @@ export class HolidayPackage {
   }
 
   getPackagesByCity(city: string): Observable<HolidayPackage[]> {
-    return this.http.get<HolidayPackage[]>(`${this.apiUrl}/${city}`);
+    let url = `${this.packageUrl}?city=${city}`;
+    return this.http.get<HolidayPackage[]>(url);
   }
 
   // getAttractionVisitById(id: number): Observable<AttractionVisit> {

@@ -6,6 +6,6 @@
             <option value="" disabled selected>Scegli una città</option>
         @for (city of cities; track city) {<option [value]="city">{{city}}</option>}
         </select>
-        <button type="submit">Cerca</button>
+        <button type="submit" [routerLink] = "['/package', searchByCityForm.value.city]">Cerca</button>
     </form>
 </section>

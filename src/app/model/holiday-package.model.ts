@@ -11,5 +11,5 @@ export interface HolidayPackage {
     description: string;
     maxPeopleCount: number;
     imagePath: string;
-    AttractionVisit: AttractionVisit[];
+    attractionVisits: AttractionVisit[];
   }
