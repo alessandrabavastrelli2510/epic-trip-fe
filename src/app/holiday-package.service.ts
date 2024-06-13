@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AttractionVisit } from './attraction-visit/attraction-visit.component';
+//import { AttractionVisit } from './attraction-visit/attraction-visit.component';
 import { HolidayPackageListComponent } from './holiday-package-list/holiday-package-list.component';
 
 @Injectable({
@@ -25,8 +25,8 @@ export class HolidayPackage {
     return this.http.get<HolidayPackage[]>(`${this.apiUrl}/${city}`);
   }
 
-  getAttractionVisitById(id: number): Observable<AttractionVisit> {
-    return this.http.get<AttractionVisit>(`${this.apiUrl}/${id}`);
-  }
+  // getAttractionVisitById(id: number): Observable<AttractionVisit> {
+  //   return this.http.get<AttractionVisit>(`${this.apiUrl}/${id}`);
+  // }
 
 }

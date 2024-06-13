@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HolidayPackage } from '../holiday-package.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-holiday-package-list',
@@ -10,12 +11,19 @@ import { HolidayPackage } from '../holiday-package.service';
   styleUrl: './holiday-package-list.component.css'
 })
 export class HolidayPackageListComponent implements OnInit{
-  url = "http://localhost:8080/package/city";
+  
   cities: string [] = [];
+
   constructor(private holidayPackageService: HolidayPackage){}
+
   ngOnInit(): void {
-    this.holidayPackageService.getCities().subscribe(data => this.cities = data);
+    this.holidayPackageService.getCities().subscribe({
+      next: (data => this.cities = data),
+      error: (error => console.log(error)),
+      complete: (() => console.log("tutto fatto!"))
+    });
   }
+
   onSubmit(form: NgForm){
     console.log(form.value);
   }
