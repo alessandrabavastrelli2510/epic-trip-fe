@@ -16,6 +16,7 @@ import { HolidayCardComponent } from '../holiday-card/holiday-card.component';
 export class HolidayPackageListComponent implements OnInit{
   
   cities: string [] = [];
+  types: string [] = [];
   holidayPackages: HolidayPackage [] = [];
 
   constructor(
@@ -25,10 +26,17 @@ export class HolidayPackageListComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.holidayPackageService.getCities().subscribe({
-      next: (data => this.cities = data),
+    // this.holidayPackageService.getCities().subscribe({
+    //   next: (data => this.cities = data),
+    //   error: (error => console.log(error)),
+    //   complete: (() => console.log("tutto fatto!"))
+    // });
+    this.holidayPackageService.cities$.subscribe(cities => this.cities = cities);
+    this.holidayPackageService.getCities();
+    this.holidayPackageService.getTypes().subscribe({
+      next: (data => this.types = data),
       error: (error => console.log(error)),
-      complete: (() => console.log("tutto fatto!"))
+      complete: (() => console.log("tutto bene!"))
     });
   }
 

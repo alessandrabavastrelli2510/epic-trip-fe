@@ -9,7 +9,29 @@ import { HolidayPackage } from '../model/holiday-package.model';
   styleUrl: './holiday-card.component.css'
 })
 export class HolidayCardComponent {
-   @Input() package: HolidayPackage | undefined;
+   @Input("package") package: HolidayPackage | undefined;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //     id: 49,
 //     packageDuration: 3,
 //     packageType: "adventure",
@@ -94,5 +116,3 @@ export class HolidayCardComponent {
 //             visitDay: 3
 //         }
 //     ]
-    
-}
