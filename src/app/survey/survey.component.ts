@@ -15,6 +15,7 @@ export class SurveyComponent implements OnInit{
   selectedDate: string = "";
   questions: Questions[] = [];
   cities: string[] = [];
+  types: string[] = [];
 
   constructor(private holidayPackageService: HolidayPackageService){
 
@@ -24,6 +25,10 @@ export class SurveyComponent implements OnInit{
     this.holidayPackageService.getQuestions().subscribe({
       next: questions => this.questions = questions,
       error: err => console.log('errore nel caricamento delle domande', err)
+    })
+    this.holidayPackageService.getTypes().subscribe({
+      next: types => this.types = types,
+      error: err => console.log('errore nel caricamento dei tipi', err)
     })
     this.holidayPackageService.cities$.subscribe(cities => this.cities = cities);
     this.holidayPackageService.getCities();
@@ -48,7 +53,7 @@ export class SurveyComponent implements OnInit{
     
   }
   onSubmit(form: NgForm){
-    console.log(form);
+    console.log(form.value);
   }
 
     
