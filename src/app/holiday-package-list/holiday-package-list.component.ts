@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { HolidayPackage } from '../holiday-package.service';
+import { HolidayPackageService } from '../holiday-package.service';
 import { Observable } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-holiday-package-list',
@@ -14,7 +16,7 @@ export class HolidayPackageListComponent implements OnInit{
   
   cities: string [] = [];
 
-  constructor(private holidayPackageService: HolidayPackage){}
+  constructor(private holidayPackageService: HolidayPackageService){}
 
   ngOnInit(): void {
     this.holidayPackageService.getCities().subscribe({

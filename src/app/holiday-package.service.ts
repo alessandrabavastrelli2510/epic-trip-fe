@@ -7,7 +7,7 @@ import { HolidayPackageListComponent } from './holiday-package-list/holiday-pack
 @Injectable({
   providedIn: 'root'
 })
-export class HolidayPackage {
+export class HolidayPackageService {
   private apiUrl = 'http://localhost:8080/package';
   private apiUrlForCities = "http://localhost:8080/package/city";
   constructor(private http: HttpClient) {
@@ -21,8 +21,8 @@ export class HolidayPackage {
     return this.http.get<string[]>(this.apiUrlForCities);
   }
 
-  getPackagesByCity(city: string): Observable<HolidayPackage[]> {
-    return this.http.get<HolidayPackage[]>(`${this.apiUrl}/${city}`);
+  getPackagesByCity(city: string): Observable<HolidayPackageService[]> {
+    return this.http.get<HolidayPackageService[]>(`${this.apiUrl}/${city}`);
   }
 
   // getAttractionVisitById(id: number): Observable<AttractionVisit> {
