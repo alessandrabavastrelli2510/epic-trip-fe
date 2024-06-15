@@ -1,1 +1,56 @@
-<p>survey works!</p>
+<section>
+    <h3>Rispondi a queste domande per trovare la scelta più adatta per te!</h3>
+    <form #sendSurveyForm="ngForm" (ngSubmit)="onSubmit(sendSurveyForm)">
+        <ol>
+            @for(q of questions; track q.id){
+                <li><label for="{{ q.id }}">{{ q.question }}</label></li>
+                @switch (q.id) {
+                    @case(1){
+                        <div class="radio-group">
+                            @for(c of cities; track c){
+                                <input type="radio" id="{{ c }}"name="cities" value="{{ c }}" required ngModel>
+                                <label for="{{ c }}">{{ c }}</label>
+                        }
+                        </div>
+                    }
+                    @case(2){
+                        <input type="number" name="numPeople" min="1" max="10" required ngModel>
+                    }
+                    @case(3){
+                        <input type="date" name="startDate" [min]="minDate" (change)="validateDate($event)" required ngModel>
+                        @if (errorMessage) {
+                            <div class = "error-message">{{ errorMessage }}</div>
+                        }
+                    }
+                    @case (4){
+                        <div class="radio-group">
+                            <input type="radio" id="three" name="days" value="3" required ngModel>
+                            <label for="three">3</label>
+                            <input type="radio" id="five" name="days" value="5" required ngModel>
+                            <label for="five">5</label>
+                        </div>
+                    }
+                    @case (5){
+                        <div class="radio-group">
+                        @for(t of types; track t){
+                            <input type="radio" id="{{ t }}"name="types" value="{{ t }}" required ngModel>
+                            <label for="{{ t }}">{{ t }}</label>
+                    }
+                    </div>
+                    }
+                    @case (6) {
+                        <div class="radio-group">
+                            <input type="radio" id="$" name="cost" value="$" required ngModel>
+                            <label for="$">$</label>
+                            <input type="radio" id="$$" name="cost" value="$$" required ngModel>
+                            <label for="$$">$$</label>
+                            <input type="radio" id="$$$" name="cost" value="$$$" required ngModel>
+                            <label for="$$$">$$$</label>
+                        </div>
+                    }
+                }
+            }
+        </ol>
+        <button type="submit">Cerca</button>
+    </form>
+</section>

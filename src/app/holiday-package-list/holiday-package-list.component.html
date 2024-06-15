@@ -9,3 +9,9 @@
         <button type="submit">Cerca</button>
     </form>
 </section>
+<section id="packages">
+    @for (p of holidayPackages; track p.id) {
+        <app-holiday-card [package]="p">
+        </app-holiday-card>
+    }  
+</section>

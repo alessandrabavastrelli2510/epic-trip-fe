@@ -1,0 +1,17 @@
+@if (package) {
+<article>
+  <h3>{{ package.title }}</h3>
+  <p>{{ package.city }} , {{ package.country }}</p>
+  <p>{{ package.description }}</p>
+  <img src="images/packages/{{ package.imagePath }}" alt="" />
+  <ol>
+    @for (av of package.attractionVisits; track av.id){
+    <li>
+      <p>
+        {{ av.attractionName }}
+      </p>
+    </li>
+    }
+  </ol>
+</article>
+}
