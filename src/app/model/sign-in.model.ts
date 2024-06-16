@@ -1,14 +1,6 @@
-export interface signIn{
-    firstname: string;
-    lastname: string;
-    birthdate: Date;
-    telephone: string;
-    country: string;
-    city: string;
-    street: string;
-    house_number: string;
-    postal_code: string;
-    email: string;
+import { User } from "./user.model";
+
+export interface SignIn{
+    user: User;
     password: string;
-    gender: string;
 }

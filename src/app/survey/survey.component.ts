@@ -5,10 +5,11 @@ import { HolidayPackageService } from '../service/holiday-package.service';
 import { SurveyModel } from '../model/survey-form.model';
 import { HolidayPackage } from '../model/holiday-package.model';
 import { Router } from '@angular/router';
+import { HolidayCardComponent } from '../holiday-card/holiday-card.component';
 @Component({
   selector: 'app-survey',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,HolidayCardComponent],
   templateUrl: './survey.component.html',
   styleUrl: './survey.component.css'
 })
@@ -20,9 +21,11 @@ export class SurveyComponent implements OnInit{
   cities: string[] = [];
   types: string[] = [];
   holidayPackage: HolidayPackage | undefined;
+  showResult = false;
   
 
   constructor(private holidayPackageService: HolidayPackageService, private router: Router ){
+
 
   }
 
@@ -73,10 +76,18 @@ export class SurveyComponent implements OnInit{
     };
 
     
-    this.holidayPackageService.holidayPackage$.subscribe(pack => this.holidayPackage = pack);
-    this.holidayPackageService.getPackageByAnswers(answers);
-    this.router.navigate(['/holiday-card']);
-  } 
+    this.holidayPackageService.getPackageByAnswers(answers).subscribe({
+      next: pack => {
+        this.holidayPackage = pack;
+        this.showResult=true;
+      },
+      error: (err) => console.log(err)
+    });
+  }
+  backToSurvey():void{
+
+    this.showResult=false;
+  }
 }
 
 

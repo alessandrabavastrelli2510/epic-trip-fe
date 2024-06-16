@@ -37,15 +37,22 @@ export class HolidayPackageService {
   getTypes(): Observable<string[]>{
     return this.http.get<string[]>(`${this.packageUrl}/type`);
   }
+  // getQuestions(): Observable<Questions[]>{
+  //   const token = localStorage.getItem('token');
+  //   let headers = new HttpHeaders();
+  //   if(token){
+  //     headers = headers.set('Authorization', `Bearer ${token}`);
+  //   }
+  //   return this.http.get<Questions[]>(this.surveyUrl,{headers});
+  // }
   getQuestions(): Observable<Questions[]>{
     return this.http.get<Questions[]>(this.surveyUrl);
   }
+  
 
-  getPackageByAnswers(answers: SurveyModel): void{
+  getPackageByAnswers(answers: SurveyModel): Observable<HolidayPackage>{
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-      this.http.post<HolidayPackage>(`${this.packageUrl}/find`, answers, {headers}).subscribe({
-      next: hPackage => this.holidayPackageSubject.next(hPackage),
-      error: err => console.log("errore nel caricamento del pacchetto", err)
-    });
+     return this.http.post<HolidayPackage>(`${this.packageUrl}/find`, answers, {headers});
+
   }
 }

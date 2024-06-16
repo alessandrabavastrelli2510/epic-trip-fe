@@ -1,58 +1,60 @@
-<div id="form-div"><form class="form">
+
+<div id="form-div">
+  <form class="form" #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
   <div id="register-div">
   <p class="title">Register</p>
 </div>
   <p class="message">Registrati ora per avere accesso a tutte le funzionalità</p>
   <div class="flex">
     <label>
-      <input required="" placeholder="" type="text" class="input" />
+      <input  placeholder="" name="firstname" type="text" class="input" required ngModel/>
       <span>Nome</span>
     </label>
     <label>
-      <input required="" placeholder="" type="text" class="input" />
+      <input  placeholder="" name="lastname"type="text" class="input" required ngModel/>
       <span>Cognome</span>
     </label>
   </div>
   <div class="flex">
     <label>
-      <input required="" placeholder="" type="text" class="input" />
+      <input class="input" id="date-input" placeholder="" name="birthdate" type="date"  [max]="maxDate" required ngModel />
       <span>Data di nascita</span>
     </label>
-    <label>
-      <input required="" placeholder="" type="text" class="input" />
+    <label id="telephone-number">
+      <input  placeholder="" type="text" class="input" name="telephoneNumber" required ngModel />
       <span>Numero di Telefono</span>
     </label>
   </div>
   <div class="flex">
     <label>
-      <input required="" placeholder="" type="text" class="input" />
+      <input placeholder="" type="text" class="input"  name="country" required ngModel/>
       <span>Paese</span>
     </label>
     <label>
-      <input required="" placeholder="" type="text" class="input" />
+      <input placeholder="" type="text" class="input" name="city" required ngModel />
       <span>Città</span>
     </label>
   </div>
   <label class="long-input">
-    <input required="" placeholder="" type="text" class="input" />
+    <input type="text" class="input" name="street" required ngModel/>
     <span>Via</span>
   </label>
   <div class="flex">
     <label>
-      <input required="" placeholder="" type="text" class="input" />
+      <input  placeholder="" type="text" class="input" name="houseNumber"required ngModel />
       <span>Numero Civico</span>
     </label>
     <label>
-      <input required="" placeholder="" type="text" class="input" />
+      <input  placeholder="" type="text" class="input" name="postalCode"required ngModel/>
       <span>CAP</span>
     </label>
   </div>
   <label class="long-input">
-    <input required="" placeholder="" type="email" class="input" />
+    <input   type="email" class="input" name="email" required ngModel/>
     <span>Email</span>
   </label>
   <label class="long-input">
-    <input required="" placeholder="" type="password" class="input" />
+    <input placeholder="" type="password" class="input" name="password" required ngModel />
     <span>Password</span>
   </label>
   <button class="submit">Submit</button>

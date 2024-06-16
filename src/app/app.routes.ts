@@ -5,6 +5,7 @@ import { SurveyComponent } from './survey/survey.component';
 import { HolidayCardComponent } from './holiday-card/holiday-card.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { LoginComponent } from './login/login.component';
+import { PaymentComponent } from './payment/payment.component';
 export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'search', component: HolidayPackageListComponent},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     {path: 'package/:city', component: HolidayCardComponent},
     {path: 'holiday-card', component: HolidayCardComponent},
     {path: 'sign-in', component: SignInComponent},
-    {path: 'login', component: LoginComponent}
+    {path: 'login', component: LoginComponent},
+    {path: 'payment', component: PaymentComponent}
 ];

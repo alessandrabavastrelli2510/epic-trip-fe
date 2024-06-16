@@ -9,14 +9,11 @@ import { HolidayPackageService } from '../service/holiday-package.service';
   templateUrl: './holiday-card.component.html',
   styleUrl: './holiday-card.component.css'
 })
-export class HolidayCardComponent implements OnInit {
+export class HolidayCardComponent {
    @Input("package") holidayPackage: HolidayPackage | undefined;
 
    constructor( private holidayPackageService: HolidayPackageService ){}
 
-   ngOnInit(): void {
-    this.holidayPackageService.holidayPackage$.subscribe(pack => this.holidayPackage = pack);
-  }
   
 }
 

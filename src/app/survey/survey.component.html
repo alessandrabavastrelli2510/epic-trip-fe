@@ -1,3 +1,4 @@
+@if(!showResult){
 <section>
     <h3>Rispondi a queste domande per trovare la scelta più adatta per te!</h3>
     <form #sendSurveyForm="ngForm" (ngSubmit)="onSubmit(sendSurveyForm)">
@@ -54,3 +55,8 @@
         <button type="submit">Cerca</button>
     </form>
 </section>
+} @else {
+    <button (click)="backToSurvey()" >Torna al survey</button>
+  <app-holiday-card [package]="holidayPackage"></app-holiday-card>
+
+}
