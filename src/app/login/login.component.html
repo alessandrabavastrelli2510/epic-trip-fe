@@ -1,5 +1,6 @@
+
 <div id="form-div">
-<form class="form">
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="form">
   <div id="register-div">
   <p class="title">Login</p>
 </div>
@@ -7,12 +8,12 @@
     Fai il Login per accedere a tutte le funzionalità del sito!
   </p>
 
-  <label>
-    <input required="" placeholder="" type="email" class="input" />
+  <label for="email">
+    <input  name="email" type="text" class="input" id="email" required ngModel/>
     <span>Email</span>
   </label>
-  <label>
-    <input required="" placeholder="" type="password" class="input" />
+  <label for="password">
+    <input  name="password" type="password" class="input" id="password" required ngModel/>
     <span>Password</span>
   </label>
   <button class="submit">Invia</button>
