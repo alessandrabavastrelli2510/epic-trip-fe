@@ -6,10 +6,12 @@
                 <li><label for="{{ q.id }}">{{ q.question }}</label></li>
                 @switch (q.id) {
                     @case(1){
-                        <div class="radio-group">
+                        <div class="container">
                             @for(c of cities; track c){
+                                <label for="{{ c }}">
                                 <input type="radio" id="{{ c }}"name="cities" value="{{ c }}" required ngModel>
-                                <label for="{{ c }}">{{ c }}</label>
+                                <span>{{ c }}</span>
+                                </label>
                         }
                         </div>
                     }
@@ -23,29 +25,35 @@
                         }
                     }
                     @case (4){
-                        <div class="radio-group">
+                        <div class="container">
+                            <label for="three">
                             <input type="radio" id="three" name="days" value="3" required ngModel>
-                            <label for="three">3</label>
+                            <span>3</span></label>
+                            <label for="five">
                             <input type="radio" id="five" name="days" value="5" required ngModel>
-                            <label for="five">5</label>
+                            <span>5</span></label>
                         </div>
                     }
                     @case (5){
-                        <div class="radio-group">
+                        <div class="container">
                         @for(t of types; track t){
+                            <label for="{{ t }}">
                             <input type="radio" id="{{ t }}"name="types" value="{{ t }}" required ngModel>
-                            <label for="{{ t }}">{{ t }}</label>
+                            <span>{{ t }}</span></label>
                     }
                     </div>
                     }
                     @case (6) {
-                        <div class="radio-group">
+                        <div class="container">
+                            <label for="$">
                             <input type="radio" id="$" name="cost" value="$" required ngModel>
-                            <label for="$">$</label>
+                            <span>$</span></label>
+                            <label for="$$">
                             <input type="radio" id="$$" name="cost" value="$$" required ngModel>
-                            <label for="$$">$$</label>
+                            <span>$$</span></label>
+                            <label for="$$$">
                             <input type="radio" id="$$$" name="cost" value="$$$" required ngModel>
-                            <label for="$$$">$$$</label>
+                            <span>$$$</span></label>
                         </div>
                     }
                 }

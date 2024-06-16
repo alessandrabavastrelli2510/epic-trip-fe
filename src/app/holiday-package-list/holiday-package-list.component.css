@@ -78,7 +78,7 @@ li p:last-child {
 
 /* Section Styles */
 section {
-    background-color: #fff;
+    background-color: #ffffff;
     margin: 20px auto;
     padding: 20px;
     /*max-width: 800px;*/
@@ -156,3 +156,23 @@ select:focus {
         grid-template-columns: 1fr;
     }
 }
+
+#submit-button {
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 22px;
+    transform: 0.3s ease;
+    background-color: #000000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+#submit-button:hover {
+    background-color: #927169;
+    transform: translateY(-5px);
+  }
+#submit-button:focus{
+    outline: none;
+  }

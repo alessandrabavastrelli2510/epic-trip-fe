@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HolidayPackage } from '../model/holiday-package.model';
 import { HolidayPackageService } from '../service/holiday-package.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-holiday-card',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './holiday-card.component.html',
   styleUrl: './holiday-card.component.css'
 })

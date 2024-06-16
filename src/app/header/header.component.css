@@ -25,6 +25,11 @@ header {
     cursor: pointer;
   }
 
+  li{
+    color: white;
+    font-size: 170%;
+  }
+
   nav {
     flex: 1;
     display: flex;
