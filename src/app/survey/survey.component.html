@@ -8,7 +8,7 @@
                     @case(1){
                         <div class="radio-group">
                             @for(c of cities; track c){
-                                <input type="radio" id="{{ c }}"name="cities" value="{{ c }}" required ngModel>
+                                <input type="radio" id="{{ c }}" name="cities" value="{{ c }}" required ngModel>
                                 <label for="{{ c }}">{{ c }}</label>
                         }
                         </div>
@@ -24,9 +24,9 @@
                     }
                     @case (4){
                         <div class="radio-group">
-                            <input type="radio" id="three" name="days" value="3" required ngModel>
+                            <input type="radio" id="three" name="days" value= 3 required ngModel>
                             <label for="three">3</label>
-                            <input type="radio" id="five" name="days" value="5" required ngModel>
+                            <input type="radio" id="five" name="days" value= 5 required ngModel>
                             <label for="five">5</label>
                         </div>
                     }

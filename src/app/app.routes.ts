@@ -7,5 +7,6 @@ export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'search', component: HolidayPackageListComponent},
     {path: 'showSurvey', component: SurveyComponent},
-    {path: 'package/:city', component: HolidayCardComponent}
+    {path: 'package/:city', component: HolidayCardComponent},
+    {path: 'holiday-card', component: HolidayCardComponent}
 ];

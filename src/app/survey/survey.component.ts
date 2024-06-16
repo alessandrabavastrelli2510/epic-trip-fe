@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Questions } from '../model/survey.model';
 import { HolidayPackageService } from '../service/holiday-package.service';
+import { SurveyModel } from '../model/survey-form.model';
+import { HolidayPackage } from '../model/holiday-package.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-survey',
   standalone: true,
@@ -16,22 +19,28 @@ export class SurveyComponent implements OnInit{
   questions: Questions[] = [];
   cities: string[] = [];
   types: string[] = [];
+  holidayPackage: HolidayPackage | undefined;
+  
 
-  constructor(private holidayPackageService: HolidayPackageService){
+  constructor(private holidayPackageService: HolidayPackageService, private router: Router ){
 
   }
 
   ngOnInit(): void {
+
     this.holidayPackageService.getQuestions().subscribe({
       next: questions => this.questions = questions,
       error: err => console.log('errore nel caricamento delle domande', err)
     })
+
     this.holidayPackageService.getTypes().subscribe({
       next: types => this.types = types,
       error: err => console.log('errore nel caricamento dei tipi', err)
     })
+
     this.holidayPackageService.cities$.subscribe(cities => this.cities = cities);
     this.holidayPackageService.getCities();
+
     const today = new Date();
     const year = today.getFullYear();
     const month = (today.getMonth() + 1).toString().padStart(2,'0');
@@ -53,10 +62,21 @@ export class SurveyComponent implements OnInit{
     
   }
   onSubmit(form: NgForm){
-    console.log(form.value);
-  }
+    
+    const answers : SurveyModel = {
+      city : form.value.cities,
+      numPeople : form.value.numPeople,
+      startDate : form.value.startDate,
+      packageDuration: Number(form.value.days),
+      packageType: form.value.types,
+      priceRange: form.value.cost
+    };
 
     
+    this.holidayPackageService.holidayPackage$.subscribe(pack => this.holidayPackage = pack);
+    this.holidayPackageService.getPackageByAnswers(answers);
+    this.router.navigate(['/holiday-card']);
+  } 
 }
 
 

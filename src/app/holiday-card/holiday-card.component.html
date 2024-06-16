@@ -1,11 +1,11 @@
-@if (package) {
+@if (holidayPackage) {
 <article>
-  <h3>{{ package.title }}</h3>
-  <p>{{ package.city }} , {{ package.country }}</p>
-  <p>{{ package.description }}</p>
-  <img src="images/packages/{{ package.imagePath }}" alt="" />
+  <h3>{{ holidayPackage.title }}</h3>
+  <p>{{ holidayPackage.city }} , {{ holidayPackage.country }}</p>
+  <p>{{ holidayPackage.description }}</p>
+  <img src="images/packages/{{ holidayPackage.imagePath }}" alt="" />
   <ol>
-    @for (av of package.attractionVisits; track av.id){
+    @for (av of holidayPackage.attractionVisits; track av.id){
     <li>
       <p>
         {{ av.attractionName }}
@@ -14,4 +14,6 @@
     }
   </ol>
 </article>
+} @else {
+  <p>No holiday package found</p>
 }

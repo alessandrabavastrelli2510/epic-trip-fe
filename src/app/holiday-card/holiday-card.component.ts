@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HolidayPackage } from '../model/holiday-package.model';
+import { HolidayPackageService } from '../service/holiday-package.service';
 
 @Component({
   selector: 'app-holiday-card',
@@ -8,8 +9,15 @@ import { HolidayPackage } from '../model/holiday-package.model';
   templateUrl: './holiday-card.component.html',
   styleUrl: './holiday-card.component.css'
 })
-export class HolidayCardComponent {
-   @Input("package") package: HolidayPackage | undefined;
+export class HolidayCardComponent implements OnInit {
+   @Input("package") holidayPackage: HolidayPackage | undefined;
+
+   constructor( private holidayPackageService: HolidayPackageService ){}
+
+   ngOnInit(): void {
+    this.holidayPackageService.holidayPackage$.subscribe(pack => this.holidayPackage = pack);
+  }
+  
 }
 
 
