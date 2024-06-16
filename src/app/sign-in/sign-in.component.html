@@ -1,1 +1,11 @@
-<p>sign-in works!</p>
+<div class = "signInContainer">
+    <form #signInForm = "ngForm" (ngSubmit)="onSubmit(signInForm)">
+        <label for="name">Name :
+            <input type="text" name="firstname" placeholder="name" required ngModel>
+        </label>
+        <label for="lastname">
+            <input type="text" name="lastname" placeholder="lastname" required ngModel>
+        </label>
+        <button type="submit">Sign in</button>
+    </form>
+</div>
