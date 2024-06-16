@@ -1,3 +1,15 @@
+#form-div{
+  display: flex;
+  align-content: center;
+  padding: 50px;
+  justify-content: space-around;
+}
+
+#register-div{
+  display: flex;
+  justify-content: space-around;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -6,7 +18,7 @@
   padding: 20px;
   border-radius: 20px;
   position: relative;
-  background-color: #ff7e5f;
+  background-color: #FF996D;
   color: #ffffff;
   border: 1px solid #333;
 }
@@ -46,8 +58,9 @@
 
 .message,
 .signin {
-  font-size: 14.5px;
+  font-size: 16px;
   color: #ffffff;
+  font-weight: bold;
 }
 
 .signin {
@@ -64,12 +77,16 @@
 
 .flex {
   display: flex;
-  width: 100%;
-  gap: 6px;
+  width: 95%;
+  gap: 20px;
 }
 
 .form label {
   position: relative;
+}
+
+.long-input{
+  width: 95%;
 }
 
 .form label .input {
@@ -117,11 +134,18 @@
   font-size: 16px;
   transform: 0.3s ease;
   background-color: #000000;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .submit:hover {
   background-color: #6a6762;
+  transform: translateY(-5px);
 }
+
+.submit:focus {
+    outline: none;
+}
+
 
 @keyframes pulse {
   from {

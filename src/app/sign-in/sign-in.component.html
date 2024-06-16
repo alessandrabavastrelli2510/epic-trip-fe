@@ -1,5 +1,7 @@
-<form class="form">
+<div id="form-div"><form class="form">
+  <div id="register-div">
   <p class="title">Register</p>
+</div>
   <p class="message">Registrati ora per avere accesso a tutte le funzionalità</p>
   <div class="flex">
     <label>
@@ -31,7 +33,7 @@
       <span>Città</span>
     </label>
   </div>
-  <label>
+  <label class="long-input">
     <input required="" placeholder="" type="text" class="input" />
     <span>Via</span>
   </label>
@@ -45,14 +47,15 @@
       <span>CAP</span>
     </label>
   </div>
-  <label>
+  <label class="long-input">
     <input required="" placeholder="" type="email" class="input" />
     <span>Email</span>
   </label>
-  <label>
+  <label class="long-input">
     <input required="" placeholder="" type="password" class="input" />
     <span>Password</span>
   </label>
   <button class="submit">Submit</button>
   <p class="signin">Hai già un account? <a routerLink="/login">Login</a></p>
 </form>
+</div>
