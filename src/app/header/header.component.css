@@ -1,21 +1,38 @@
 header {
     background: linear-gradient(to right, #ff7e5f, #feb47b);
-    padding: 1rem 2rem;
+    padding: 0rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'Poppins';
+  }
+
+  h3 {
+    flex:2;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
   }
   
+  .logo {
+    flex: 1;
+  }
   .logo img {
-    height: 50px;
+    height: 200px;
+  }
+
+  nav {
+    flex: 1;
+    display: flex;
   }
   
   nav ul {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
+    justify-content: space-around;
   }
   
   nav ul li {
@@ -27,6 +44,7 @@ header {
     color: white;
     font-weight: bold;
     transition: color 0.3s;
+    font-size: 24px;
   }
   
   nav ul li a:hover {

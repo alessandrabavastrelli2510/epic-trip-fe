@@ -3,7 +3,7 @@
   <h3>{{ holidayPackage.title }}</h3>
   <p>{{ holidayPackage.city }} , {{ holidayPackage.country }}</p>
   <p>{{ holidayPackage.description }}</p>
-  <img src="images/packages/{{ holidayPackage.imagePath }}" alt="" />
+  <img src="assets/images/packages/{{ holidayPackage.imagePath }}" alt="" />
   <ol>
     @for (av of holidayPackage.attractionVisits; track av.id){
     <li>

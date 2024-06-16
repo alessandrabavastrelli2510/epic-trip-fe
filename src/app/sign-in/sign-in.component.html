@@ -1,11 +1,58 @@
-<div class = "signInContainer">
-    <form #signInForm = "ngForm" (ngSubmit)="onSubmit(signInForm)">
-        <label for="name">Name :
-            <input type="text" name="firstname" placeholder="name" required ngModel>
-        </label>
-        <label for="lastname">
-            <input type="text" name="lastname" placeholder="lastname" required ngModel>
-        </label>
-        <button type="submit">Sign in</button>
-    </form>
-</div>
+<form class="form">
+  <p class="title">Register</p>
+  <p class="message">Registrati ora per avere accesso a tutte le funzionalità</p>
+  <div class="flex">
+    <label>
+      <input required="" placeholder="" type="text" class="input" />
+      <span>Nome</span>
+    </label>
+    <label>
+      <input required="" placeholder="" type="text" class="input" />
+      <span>Cognome</span>
+    </label>
+  </div>
+  <div class="flex">
+    <label>
+      <input required="" placeholder="" type="text" class="input" />
+      <span>Data di nascita</span>
+    </label>
+    <label>
+      <input required="" placeholder="" type="text" class="input" />
+      <span>Numero di Telefono</span>
+    </label>
+  </div>
+  <div class="flex">
+    <label>
+      <input required="" placeholder="" type="text" class="input" />
+      <span>Paese</span>
+    </label>
+    <label>
+      <input required="" placeholder="" type="text" class="input" />
+      <span>Città</span>
+    </label>
+  </div>
+  <label>
+    <input required="" placeholder="" type="text" class="input" />
+    <span>Via</span>
+  </label>
+  <div class="flex">
+    <label>
+      <input required="" placeholder="" type="text" class="input" />
+      <span>Numero Civico</span>
+    </label>
+    <label>
+      <input required="" placeholder="" type="text" class="input" />
+      <span>CAP</span>
+    </label>
+  </div>
+  <label>
+    <input required="" placeholder="" type="email" class="input" />
+    <span>Email</span>
+  </label>
+  <label>
+    <input required="" placeholder="" type="password" class="input" />
+    <span>Password</span>
+  </label>
+  <button class="submit">Submit</button>
+  <p class="signin">Hai già un account? <a routerLink="/login">Login</a></p>
+</form>

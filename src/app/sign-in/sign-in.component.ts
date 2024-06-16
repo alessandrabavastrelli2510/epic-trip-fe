@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { User } from '../model/user.model';
 import { SignInService } from '../service/sign-in.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { catchError, of, tap } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterModule],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
 })

@@ -1,56 +1,18 @@
 footer {
-    background: #333;
+  background: linear-gradient(to right, #927169, #5e5044);
     color: white;
     padding: 2rem 1rem;
     text-align: center;
     position: relative;
+    font-family: 'Poppins';
   }
   
   .footer-content {
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
     flex-wrap: wrap;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #444;
-  }
-  
-  .footer-section {
-    margin: 1rem 0;
-  }
-  
-  .footer-section h3 {
-    margin-bottom: 1rem;
-    color: #ff7e5f;
-  }
-  
-  .footer-section ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-section ul li {
-    margin-bottom: 0.5rem;
-  }
-  
-  .footer-section ul li a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .footer-section ul li a:hover {
-    color: #feb47b;
-  }
-  
-  .social-links a {
-    display: inline-block;
-    margin: 0 0.5rem;
-    color: white;
-    transition: color 0.3s;
-  }
-  
-  .social-links a:hover {
-    color: #ff7e5f;
   }
   
   .footer-bottom {
