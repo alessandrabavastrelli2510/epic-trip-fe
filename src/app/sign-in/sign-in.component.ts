@@ -14,6 +14,18 @@ import { SignIn as SignIn } from '../model/sign-in.model';
   styleUrl: './sign-in.component.css'
 })
 export class SignInComponent implements OnInit{
+  // currentUser2:User = {
+  //   firstname: "",
+  //   lastname: "",
+  //   birthdate: new Date(Date.now()),
+  //   telephoneNumber: "",
+  //   country: "",
+  //   city: "",
+  //   street: "",
+  //   houseNumber: 0 ,
+  //   postalCode: "" ,
+  //   email: "",
+  // } 
   maxDate: string = "";
   sDate: string = "";
   errorMessage: string | null = null;
@@ -63,12 +75,14 @@ export class SignInComponent implements OnInit{
       email: form.value.email,
 
       };
+    // const currentUser: User={
+    //   ...form.value
+    // }
       
     const signInUser: SignIn={
       user: currentUser,
       password: form.value.password
     }
-  console.log(signInUser);
 
     // this.signInService.saveUser(signInUser).pipe(
     //   tap(() => {
