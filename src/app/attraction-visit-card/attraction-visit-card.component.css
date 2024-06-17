@@ -1,0 +1,33 @@
+#prenota {
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 20px;
+    transform: 0.3s ease;
+    background-color: #000000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+  }
+  
+#prenota:hover {
+    cursor: pointer;
+    background-color: #927169;
+    transform: translateY(-5px);
+  }
+#prenota:focus{
+    outline: none;
+  }
+
+#button-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#card-container{
+    display: flex;
+    flex-direction: column;
+}

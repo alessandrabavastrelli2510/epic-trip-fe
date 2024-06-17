@@ -10,7 +10,7 @@
         @if(!isLogged){<li><a routerLink="/login">Login</a></li>
         <li><a routerLink="/sign-in">Registrati</a></li>}
         @else {
-          <li (click)="logOut()"><a>Disconnettiti</a></li>
+          <li (click)="logOut()" id="disconnect"><a>Disconnettiti</a></li>
          }
       </ul>
     </nav>

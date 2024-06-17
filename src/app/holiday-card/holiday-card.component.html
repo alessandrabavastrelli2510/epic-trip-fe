@@ -1,5 +1,5 @@
 @if (holidayPackage) {
-<article>
+<article id="card">
   <h3>{{ holidayPackage.title }}</h3>
   <p>{{ holidayPackage.city }} , {{ holidayPackage.country }}</p>
   <p>{{ holidayPackage.description }}</p>
@@ -11,7 +11,7 @@
     </li>
     }
   </ol>
-  <button>Prenota!</button>
+  <button id="prenota">Prenota!</button>
 </article>
 } @else {
   <div class="no-package-wrapper">
