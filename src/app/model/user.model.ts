@@ -10,4 +10,5 @@ export interface User{
     houseNumber: number;
     postalCode: string;
     email: string;
+    gender: string;
 }

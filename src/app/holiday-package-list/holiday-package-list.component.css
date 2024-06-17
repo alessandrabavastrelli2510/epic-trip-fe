@@ -100,7 +100,7 @@ section section {
 }
 
 button {
-    background-color: #2980b9;
+    background-color: #000000;
     color: #fff;
     border: none;
     padding: 15px 20px;
@@ -161,12 +161,13 @@ select:focus {
     border: none;
     outline: none;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 12px;
     color: #ffffff;
-    font-size: 22px;
+    font-size: 20px;
     transform: 0.3s ease;
     background-color: #000000;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
   }
   
 #submit-button:hover {

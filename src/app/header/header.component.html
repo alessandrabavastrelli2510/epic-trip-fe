@@ -6,8 +6,12 @@
     <nav>
       <ul>
         <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
-        <li><a routerLink="/login">Login</a>|<a routerLink="/sign-in">Sign in</a></li>
+        <li><a routerLink="/contact">Contatti</a></li>
+        @if(!isLogged){<li><a routerLink="/login">Login</a></li>
+        <li><a routerLink="/sign-in">Registrati</a></li>}
+        @else {
+          <li (click)="logOut()"><a>Disconnettiti</a></li>
+         }
       </ul>
     </nav>
   </header>

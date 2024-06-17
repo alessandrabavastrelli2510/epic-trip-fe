@@ -1,63 +1,74 @@
-
 <div id="form-div">
   <form class="form" #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
-  <div id="register-div">
-  <p class="title">Register</p>
-</div>
-  <p class="message">Registrati ora per avere accesso a tutte le funzionalità</p>
-  <div class="flex">
-    <label>
-      <input  placeholder="" name="firstname" type="text" class="input" required ngModel/>
-      <span>Nome</span>
-    </label>
-    <label>
-      <input  placeholder="" name="lastname"type="text" class="input" required ngModel/>
-      <span>Cognome</span>
-    </label>
-  </div>
-  <div class="flex">
-    <label>
-      <input class="input" id="date-input" placeholder="" name="birthdate" type="date"  [max]="maxDate" required ngModel />
-      <span>Data di nascita</span>
-    </label>
-    <label id="telephone-number">
-      <input  placeholder="" type="text" class="input" name="telephoneNumber" required ngModel />
-      <span>Numero di Telefono</span>
-    </label>
-  </div>
-  <div class="flex">
-    <label>
-      <input placeholder="" type="text" class="input"  name="country" required ngModel/>
-      <span>Paese</span>
-    </label>
-    <label>
-      <input placeholder="" type="text" class="input" name="city" required ngModel />
-      <span>Città</span>
-    </label>
-  </div>
-  <label class="long-input">
-    <input type="text" class="input" name="street" required ngModel/>
-    <span>Via</span>
-  </label>
-  <div class="flex">
-    <label>
-      <input  placeholder="" type="text" class="input" name="houseNumber"required ngModel />
-      <span>Numero Civico</span>
-    </label>
-    <label>
-      <input  placeholder="" type="text" class="input" name="postalCode"required ngModel/>
-      <span>CAP</span>
-    </label>
-  </div>
-  <label class="long-input">
-    <input   type="email" class="input" name="email" required ngModel/>
-    <span>Email</span>
-  </label>
-  <label class="long-input">
-    <input placeholder="" type="password" class="input" name="password" required ngModel />
-    <span>Password</span>
-  </label>
-  <button class="submit">Submit</button>
-  <p class="signin">Hai già un account? <a routerLink="/login">Login</a></p>
-</form>
+    <div id="register-div">
+      <p class="title">Registrati</p>
+    </div>
+    <p class="message">Registrati ora per avere accesso a tutte le funzionalità</p>
+    <div class="flex">
+      <label>
+        <input name="firstname" type="text" class="input" required ngModel/>
+        <span>Nome</span>
+      </label>
+      <label>
+        <input name="lastname" type="text" class="input" required ngModel/>
+        <span>Cognome</span>
+      </label>
+    </div>
+    <div class="flex">
+      <label>
+        <input class="input" id="date-input" name="birthdate" type="date" [max]="maxDate" required ngModel/>
+        <span>Data di nascita</span>
+      </label>
+      <label id="gender-label">
+        <select name="gender" id="gender" required ngModel>
+          <option value="" disabled selected>Genere</option>
+          <option value="Maschio">Maschio</option>
+          <option value="Femmina">Femmina</option>
+          <option value="Altro">Altro</option>
+        </select>
+      </label>      
+    </div>
+    <div class="flex">
+      <label class="long-input">
+        <input type="text" class="input" name="street" required ngModel/>
+        <span>Via</span>
+      </label>
+      <label>
+        <input type="text" class="input" name="houseNumber" required ngModel/>
+        <span>Numero Civico</span>
+      </label>
+    </div>
+    <div class="flex">
+      <label>
+        <input type="text" class="input" name="city" required ngModel/>
+        <span>Città</span>
+      </label>
+      <label>
+        <input type="text" class="input" name="country" required ngModel/>
+        <span>Nazione</span>
+      </label>
+    </div>
+    <div class="flex">
+      <label id="telephone-number">
+        <input type="text" class="input" name="telephoneNumber" required ngModel/>
+        <span>Numero di Telefono</span>
+      </label>
+      <label>
+        <input type="text" class="input" name="postalCode" required ngModel/>
+        <span>CAP</span>
+      </label>
+    </div>
+    <div class="flex">
+      <label class="long-input">
+        <input type="email" class="input" name="email" required ngModel/>
+        <span>Email</span>
+      </label>
+      <label class="long-input">
+        <input type="password" class="input" name="password" required ngModel/>
+        <span>Password</span>
+      </label>
+    </div>
+    <button class="submit">Invia</button>
+    <p class="signin">Hai già un account? <a routerLink="/login">Login</a></p>
+  </form>
 </div>

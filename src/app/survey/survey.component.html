@@ -64,7 +64,17 @@
     </form>
 </section>
 } @else {
-    <button (click)="backToSurvey()" >Torna al survey</button>
-  <app-holiday-card [package]="holidayPackage"></app-holiday-card>
+    <div>
 
+        <div id="card-container">
+            <div>
+                <app-holiday-card [package]="holidayPackage"></app-holiday-card>
+            </div>
+            <div id="button-wrapper">
+                <button (click)="backToSurvey()">Torna al survey</button>
+              </div>
+        </div>
+
+
+      </div>
 }

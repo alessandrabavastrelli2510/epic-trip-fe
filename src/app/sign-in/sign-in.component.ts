@@ -61,6 +61,7 @@ export class SignInComponent implements OnInit{
       houseNumber: form.value.houseNumber,
       postalCode: form.value.postalCode,
       email: form.value.email,
+      gender: form.value.gender
 
       };
       

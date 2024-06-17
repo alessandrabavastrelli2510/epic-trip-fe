@@ -1,3 +1,4 @@
+/* Adjust the existing styles */
 #form-div{
   display: flex;
   align-content: center;
@@ -5,9 +6,31 @@
   justify-content: space-around;
 }
 
+#gender-label{
+  width: auto;
+}
+
 #register-div{
   display: flex;
   justify-content: space-around;
+}
+
+#telephone-number{
+  width: 320px;
+}
+
+#gender {
+  font-family: "Poppins";
+  color: #000;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+  font-size: medium;
+  background-color: #fff;
+  width: 135%;
+  margin-left: -15px;
+  padding-bottom: 19px;
+  margin-right: 9px;
 }
 
 .form {
@@ -92,15 +115,17 @@
 .form label .input {
   color: #000;
   width: 100%;
-  padding: 20px 05px 05px 10px;
+  padding: 21px 5px 5px 10px;
   outline: 0;
   border: 1px solid rgba(105, 105, 105, 0.397);
   border-radius: 10px;
 }
-input[type="date"] {
+
+#date-input {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  width: 203px;
 }
 
 .form label .input + span {
@@ -150,7 +175,6 @@ input[type="date"] {
 .submit:focus {
     outline: none;
 }
-
 
 @keyframes pulse {
   from {

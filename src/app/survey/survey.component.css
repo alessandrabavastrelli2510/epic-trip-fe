@@ -100,19 +100,20 @@ section section {
 }
 
 button {
-    background-color: #2980b9;
-    color: #fff;
     border: none;
-    padding: 15px 20px;
-    margin: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
+    outline: none;
+    padding: 10px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 20px;
+    transform: 0.3s ease;
+    background-color: #000000;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
 }
 
 button:hover {
-    background-color: #1f6391;
+    background-color: #927169;
     transform: translateY(-5px);
 }
 
@@ -248,4 +249,16 @@ li div {
   margin-right: 0.375em;
   transition: 0.25s ease;
   box-shadow: inset 0 0 0 0.125em #000000;
+}
+
+#button-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#card-container{
+    display: flex;
+    flex-direction: column;
 }
