@@ -1,11 +1,11 @@
-@if(attractionVisit){
-    <article id="card-container">
-<ul>
-    <li>{{attractionVisit?.attractionName}}</li>
-    <li>{{attractionVisit.attractionDescription}}</li>
-</ul>
-}
-<div id="button-wrapper">
-<button (click)="goBack()" id="prenota">Torna indietro</button>
-</div>
+<article id="card-container">
+  @if(attractionVisit){
+  <ul>
+    <li>{{ attractionVisit.attractionName }}</li>
+    <li>{{ attractionVisit.attractionDescription }}</li>
+  </ul>
+  }
+  <div id="button-wrapper">
+    <button (click)="goBack()" id="prenota">Torna indietro</button>
+  </div>
 </article>
