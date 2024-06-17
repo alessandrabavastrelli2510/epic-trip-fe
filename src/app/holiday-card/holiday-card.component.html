@@ -7,12 +7,11 @@
   <ol>
     @for (av of holidayPackage.attractionVisits; track av.id){
     <li>
-      <p>
-        {{ av.attractionName }}
-      </p>
+      <p (click)="goToAttraction(av)">{{ av.attractionName }}</p>
     </li>
     }
   </ol>
+  <button>Prenota!</button>
 </article>
 } @else {
   <p>No holiday package found</p>
