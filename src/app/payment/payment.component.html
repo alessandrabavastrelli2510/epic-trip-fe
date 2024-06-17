@@ -1,1 +1,18 @@
-<p>payment works!</p>
+<div class="payment-form">
+    <h2>Pagamento</h2>
+    <form #paymentForm="ngForm" (ngSubmit)="onSubmit(paymentForm)">
+        <label for="name">Nome sulla Carta</label>
+        <input type="text" id="name" name="name" required ngModel>
+
+        <label for="card-number">Numero della Carta</label>
+        <input type="text" id="card-number" name="card-number" required ngModel>
+
+        <label for="expiry-date">Data di Scadenza (MM/AA)</label>
+        <input type="text" id="expiry-date" name="expiry-date" required ngModel>
+
+        <label for="cvv">CVV</label>
+        <input type="number" id="cvv" name="cvv" required ngModel>
+
+        <button type="submit">Paga</button>
+    </form>
+</div>

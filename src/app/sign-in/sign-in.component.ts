@@ -3,7 +3,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { User } from '../model/user.model';
 import { UserService } from '../service/user.service';
 import { Router, RouterModule } from '@angular/router';
-import { catchError, of, tap } from 'rxjs';
 import { SignIn as SignIn } from '../model/sign-in.model';
 
 @Component({

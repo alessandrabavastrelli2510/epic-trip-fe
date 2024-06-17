@@ -7,6 +7,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { LoginComponent } from './login/login.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AttractionVisitCardComponent } from './attraction-visit-card/attraction-visit-card.component';
+import { ReservedPackageComponent } from './reserved-package/reserved-package.component';
 export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'search', component: HolidayPackageListComponent},
@@ -16,5 +17,6 @@ export const routes: Routes = [
     {path: 'sign-in', component: SignInComponent},
     {path: 'login', component: LoginComponent},
     {path: 'payment', component: PaymentComponent},
-    {path: 'attraction', component: AttractionVisitCardComponent}
+    {path: 'attraction', component: AttractionVisitCardComponent},
+    {path: 'reserved-package', component: ReservedPackageComponent}
 ];

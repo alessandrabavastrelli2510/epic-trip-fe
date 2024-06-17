@@ -12,8 +12,7 @@ export class HolidayPackageService {
   private citiesSubject = new BehaviorSubject<string[]>([]);
   cities$ = this.citiesSubject.asObservable(); 
 
-  private holidayPackageSubject = new BehaviorSubject<HolidayPackage | undefined>(undefined);
-  holidayPackage$ = this.holidayPackageSubject.asObservable(); 
+  
 
   private packageUrl = 'http://localhost:8080/package';
   private surveyUrl = 'http://localhost:8080/survey';
