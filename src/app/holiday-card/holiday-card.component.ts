@@ -1,21 +1,31 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HolidayPackage } from '../model/holiday-package.model';
 import { HolidayPackageService } from '../service/holiday-package.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AttractionVisitCardComponent } from '../attraction-visit-card/attraction-visit-card.component';
+import { AttractionVisit } from '../model/attraction-visit.model';
+import { HolidayCardService } from '../service/holiday-card.service';
 
 @Component({
   selector: 'app-holiday-card',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, AttractionVisitCardComponent],
   templateUrl: './holiday-card.component.html',
   styleUrl: './holiday-card.component.css'
 })
 export class HolidayCardComponent {
    @Input("package") holidayPackage: HolidayPackage | undefined;
+    attraction: AttractionVisit | undefined;
 
-   constructor( private holidayPackageService: HolidayPackageService ){}
 
-  
+   constructor( private hcs: HolidayCardService, private router: Router ){}
+
+
+   goToAttraction(av: AttractionVisit){
+    this.hcs.setAttraction(av);
+    this.router.navigate(['/attraction']);
+   }
+
 }
 
 
