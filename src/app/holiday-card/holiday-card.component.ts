@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HolidayPackage } from '../model/holiday-package.model';
-import { HolidayPackageService } from '../service/holiday-package.service';
 import { Router, RouterModule } from '@angular/router';
 import { AttractionVisitCardComponent } from '../attraction-visit-card/attraction-visit-card.component';
 import { AttractionVisit } from '../model/attraction-visit.model';
@@ -14,17 +13,22 @@ import { HolidayCardService } from '../service/holiday-card.service';
   styleUrl: './holiday-card.component.css'
 })
 export class HolidayCardComponent {
-   @Input("package") holidayPackage: HolidayPackage | undefined;
+  @Input("package") holidayPackage: HolidayPackage | undefined;
     attraction: AttractionVisit | undefined;
 
 
-   constructor( private hcs: HolidayCardService, private router: Router ){}
+  constructor( private hcs: HolidayCardService, private router: Router ){}
 
 
-   goToAttraction(av: AttractionVisit){
+  goToAttraction(av: AttractionVisit){
     this.hcs.setAttraction(av);
     this.router.navigate(['/attraction']);
-   }
+  }
+
+  goToReservation(hp: HolidayPackage){
+    this.hcs.setPackage(hp);
+    this.router.navigate(['/payment']);
+  }
 
 }
 
