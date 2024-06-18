@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/fonts/Poppins.ttf');
+  }
+  body {
+    font-family: 'Poppins';
+    background-color: rgba(255, 226, 162, 0.45);
+  }
