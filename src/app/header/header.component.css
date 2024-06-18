@@ -32,6 +32,7 @@ header {
   li{
     color: white;
     font-size: 170%;
+
   }
 
   nav {
@@ -44,6 +45,7 @@ header {
     display: flex;
     justify-content: space-around;
     margin-right: 50%;
+    align-items: center;
   }
   
   nav ul li {
@@ -56,6 +58,8 @@ header {
     font-weight: bold;
     transition: color 0.3s;
     font-size: 20px;
+    white-space: nowrap;
+
   }
   
   nav ul li a:hover {
