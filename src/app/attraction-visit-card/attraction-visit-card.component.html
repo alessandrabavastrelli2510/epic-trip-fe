@@ -1,11 +1,11 @@
 <article id="card-container">
   @if(attractionVisit){
-  <ul>
+  <ul style="list-style: none; padding: 0;"> <!-- Rimuovi i punti elenco e il padding -->
     <li>{{ attractionVisit.attractionName }}</li>
     <li>{{ attractionVisit.attractionDescription }}</li>
   </ul>
   }
   <div id="button-wrapper">
-    <button (click)="goBack()" id="prenota">Torna indietro</button>
+    <button (click)="goBack()" id="back-button">Torna indietro</button>
   </div>
 </article>

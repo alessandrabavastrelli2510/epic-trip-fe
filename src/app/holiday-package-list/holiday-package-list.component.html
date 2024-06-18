@@ -1,17 +1,20 @@
 <section>
-    <h3>Seleziona la città per cui vuoi visualizzare tutti i pacchetti disponibili!</h3>
-    <form #searchByCityForm="ngForm" (ngSubmit)="onSubmit(searchByCityForm)">
-        <label for="city">Città:</label>
-        <select name="city" id="city" required ngModel>
-            <option value="" disabled selected>Scegli una città</option>
-        @for (city of cities; track city) {<option [value]="city">{{city}}</option>}
-        </select>
-        <button id="submit-button">Cerca</button>
-    </form>
+  <h3>
+    Seleziona la città per cui vuoi visualizzare tutti i pacchetti disponibili!
+  </h3>
+  <form #searchByCityForm="ngForm" (ngSubmit)="onSubmit(searchByCityForm)">
+    <label for="city">Città:</label>
+    <select name="city" id="city" required ngModel>
+      <option value="" disabled selected>Scegli una città</option>
+      @for (city of cities; track city) {
+      <option [value]="city">{{ city }}</option>
+      }
+    </select>
+    <button id="submit-button">Cerca</button>
+  </form>
 </section>
 <section id="packages">
-    @for (p of holidayPackages; track p.id) {
-        <app-holiday-card [package]="p">
-        </app-holiday-card>
-    }  
+  @for (p of holidayPackages; track p.id) {
+  <app-holiday-card [package]="p"> </app-holiday-card>
+  }
 </section>

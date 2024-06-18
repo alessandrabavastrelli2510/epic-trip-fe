@@ -1,33 +1,38 @@
-#prenota {
-    border: none;
-    outline: none;
-    padding: 10px;
-    border-radius: 12px;
-    color: #ffffff;
-    font-size: 20px;
-    transform: 0.3s ease;
-    background-color: #000000;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 15px;
-  }
-  
-#prenota:hover {
-    cursor: pointer;
-    background-color: #927169;
-    transform: translateY(-5px);
-  }
-#prenota:focus{
-    outline: none;
-  }
+#back-button {
+  border: none;
+  outline: none;
+  padding: 12px 20px; /* Aumenta il padding per rendere il pulsante più grande */
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 20px;
+  transform: 0.3s ease;
+  background-color: #000000;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px; /* Aumenta il margine superiore per più spazio */
+}
+
+#back-button:hover {
+  cursor: pointer;
+  background-color: #927169;
+  transform: translateY(-5px);
+}
+#back-button:focus{
+  outline: none;
+}
 
 #button-wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem; /* Aumenta il margine inferiore per più spazio */
 }
 
 #card-container{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 200px; /* Aggiungi padding per più spazio interno */
+  max-width: 80%; /* Limita la larghezza massima per centrare meglio */
+  margin: 0 auto; /* Centra il contenitore orizzontalmente */
+  background-color: #fff; /* Assicurati che il colore di sfondo sia bianco */
 }

@@ -1,18 +1,47 @@
-<div class="payment-form">
-    <h2>Pagamento</h2>
-    <form #paymentForm="ngForm" (ngSubmit)="onSubmit(paymentForm)">
-        <label for="name">Nome sulla Carta</label>
-        <input type="text" id="name" name="name" required ngModel>
-
-        <label for="card-number">Numero della Carta</label>
-        <input type="text" id="card-number" name="card-number" required ngModel>
-
-        <label for="expiry-date">Data di Scadenza (MM/AA)</label>
-        <input type="text" id="expiry-date" name="expiry-date" required ngModel>
-
-        <label for="cvv">CVV</label>
-        <input type="number" id="cvv" name="cvv" required ngModel>
-
-        <button type="submit">Paga</button>
+<div class="modal">
+    <form class="form">
+      <div id="register-div">
+        <p class="title">Pagamento</p>
+      </div>
+      <p class="message">
+        Completa il modulo qui sotto per completare l'acquisto.
+      </p>
+  
+      <div class="payment--options">
+        <button name="paypal" type="button">
+          <img src="/assets/images/payment/paypal.png" alt="PayPal">
+        </button>
+        <button name="mastercard" type="button">
+          <img src="/assets/images/payment/mastercard.png" alt="Mastercard">
+        </button>
+        <button name="visa" type="button">
+          <img src="/assets/images/payment/visa.jpg" alt="Visa">
+        </button>
+      </div>
+  
+      <div class="separator">
+        <hr class="line">
+        <p>Usa la tua carta di credito</p>
+        <hr class="line">
+      </div>
+  
+      <div class="credit-card-info--form">
+        <div class="input_container">
+          <label for="card_name" class="input_label">Nome e cognome</label>
+          <input id="card_name" class="input_field input" type="text" name="input-name" title="Input title" placeholder="Nome e cognome">
+        </div>
+        <div class="input_container">
+          <label for="card_number" class="input_label">Numero della carta</label>
+          <input id="card_number" class="input_field input" type="number" name="input-name" title="Input title" placeholder="0000 0000 0000 0000">
+        </div>
+        <div class="input_container">
+          <label for="expiry_date" class="input_label">Data di scadenza / CVV</label>
+          <div class="split">
+            <input id="expiry_date" class="input_field input" type="text" name="input-name" title="Expiry Date" placeholder="Scadenza">
+            <input id="cvv" class="input_field input" type="number" name="cvv" title="CVV" placeholder="CVV">
+          </div>
+        </div>
+      </div>
+      <button class="submit purchase--btn">Checkout</button>
     </form>
-</div>
+  </div>

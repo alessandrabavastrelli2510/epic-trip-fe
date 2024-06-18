@@ -1,21 +1,20 @@
-
 <div id="form-div">
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="form">
-  <div id="register-div">
-  <p class="title">Login</p>
-</div>
-  <p class="message">
-    Fai il Login per accedere a tutte le funzionalità del sito!
-  </p>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="form">
+    <div id="register-div">
+      <p class="title">Login</p>
+    </div>
+    <p class="message">
+      Fai il Login per accedere a tutte le funzionalità del sito!
+    </p>
 
-  <label for="email">
-    <input  name="email" type="text" class="input" id="email" required ngModel/>
-    <span>Email</span>
-  </label>
-  <label for="password">
-    <input  name="password" type="password" class="input" id="password" required ngModel/>
-    <span>Password</span>
-  </label>
-  <button class="submit">Invia</button>
-</form>
+    <label for="email">
+      <input name="email" type="text" class="input" id="email" required ngModel/>
+      <span>Email</span>
+    </label>
+    <label for="password">
+      <input name="password" type="password" class="input" id="password" required ngModel />
+      <span>Password</span>
+    </label>
+    <button class="submit">Invia</button>
+  </form>
 </div>
