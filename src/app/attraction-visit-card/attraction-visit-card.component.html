@@ -4,4 +4,11 @@
         <li>{{ attractionVisit.attractionDescription }}</li>
     </ul>
 }
-<button (click)="goBack()">Torna indietro</button>
+@if(fromSurvey){
+    <button (click)="goBackToCard()">Torna indietro</button>
+}@else if(!fromSurvey && fromSearch){
+    <button (click)="goBackToSearchResult()">Torna città</button>
+} @else {
+    <button (click)="goBackToReservation()">Torna prenotazione</button>
+}
+

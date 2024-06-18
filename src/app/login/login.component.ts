@@ -23,6 +23,7 @@ export class LoginComponent {
     this.userService.login(loginInfo).subscribe({
       next:(res)=>{
       localStorage.setItem('token', res.token);
+      this.userService.setLogin(true);
       this.router.navigate(['']);
 
     },

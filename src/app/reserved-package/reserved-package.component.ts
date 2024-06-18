@@ -20,7 +20,7 @@ export class ReservedPackageComponent implements OnInit {
   ngOnInit(): void {
     this.hcs.holidayPackage$.subscribe({
       next: hPackage => this.holidayPackage = hPackage,
-      error: err => console.log("errore nel passaggio di attrazione", err)
+      error: err => console.log("errore nel passaggio di pacchetto", err)
     });
     console.log(this.holidayPackage);
   }

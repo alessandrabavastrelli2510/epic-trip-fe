@@ -18,12 +18,18 @@ export class HolidayPackageListComponent implements OnInit{
   cities: string [] = [];
   types: string [] = [];
   holidayPackages: HolidayPackage [] = [];
+  city: string = '';
 
   constructor(
     private holidayPackageService: HolidayPackageService,
     private route: ActivatedRoute,
     private router: Router
-  ){}
+  ){
+    const navigation = this.router.getCurrentNavigation();
+    if(navigation?.extras.state){
+      this.city = navigation.extras.state['city'];
+    }
+  }
 
   ngOnInit(): void {
     // this.holidayPackageService.getCities().subscribe({
@@ -40,16 +46,24 @@ export class HolidayPackageListComponent implements OnInit{
       error: (error => console.log(error)),
       complete: (() => console.log("tutto bene!"))
     });
+
+    if(this.city){
+      this.searchPackagesByCity(this.city);
+    }
+    
   }
 
-  onSubmit(form: NgForm): void{
-    this.holidayPackageService.getPackagesByCity(form.value.city).subscribe({
+  searchPackagesByCity(city: string){
+    this.holidayPackageService.getPackagesByCity(city).subscribe({
       next: data => {
         this.holidayPackages = data;
-        console.log(data);
     },
       error: error => console.log(error),
       complete: () => console.log("bene!")
     })
+  }
+
+  onSubmit(form: NgForm): void{
+    this.searchPackagesByCity(form.value.city);
   }
 }

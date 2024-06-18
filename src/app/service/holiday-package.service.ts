@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HolidayPackage } from '../model/holiday-package.model';
 import { Questions } from '../model/survey.model';
 import { SurveyModel } from '../model/survey-form.model';
+import { Restaurant } from '../model/restaurant.model';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +54,13 @@ export class HolidayPackageService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
      return this.http.post<HolidayPackage>(`${this.packageUrl}/find`, answers, {headers});
 
+  }
+
+  getPackageById(id: number): Observable<HolidayPackage>{
+    return this.http.get<HolidayPackage>(`${this.packageUrl}/${id}`);
+  }
+
+  getRestaurantByPackage(id: number): Observable<Restaurant>{
+    return this.http.get<Restaurant>(`${this.packageUrl}/${id}/restaurants`)
   }
 }

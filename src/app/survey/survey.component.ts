@@ -25,7 +25,14 @@ export class SurveyComponent implements OnInit{
   
 
   constructor(private holidayPackageService: HolidayPackageService, private router: Router ){
-
+    const navigation = this.router.getCurrentNavigation();
+    if(navigation?.extras.state){
+      this.showResult = navigation.extras.state['showResult'];
+      this.holidayPackageService.getPackageById(navigation.extras.state['packageId']).subscribe({
+        next: p => this.holidayPackage = p,
+        error: e => console.log(e)
+      });
+    }
 
   }
 

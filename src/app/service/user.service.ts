@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { SignIn } from '../model/sign-in.model';
 import { Login } from '../model/login.model';
 import { TokenResponse } from '../model/token-response.model';
@@ -10,6 +10,9 @@ import { TokenResponse } from '../model/token-response.model';
   providedIn: 'root'
 })
 export class UserService {
+
+  private loginSubject = new BehaviorSubject<boolean>(false);
+  login$ = this.loginSubject.asObservable();
 
   private apiUrl = 'http://localhost:8080/register';
   private baseUrl = 'http://localhost:8080/';
@@ -22,5 +25,9 @@ export class UserService {
   login(loginInfo:Login): Observable<TokenResponse>{
     return this.http.post<TokenResponse>(`${this.baseUrl}login`,loginInfo);
 
+  }
+
+  setLogin(login: boolean){
+    this.loginSubject.next(login);
   }
 }

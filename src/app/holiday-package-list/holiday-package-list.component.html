@@ -2,7 +2,7 @@
     <h3>Seleziona la città per cui vuoi visualizzare tutti i pacchetti disponibili!</h3>
     <form #searchByCityForm="ngForm" (ngSubmit)="onSubmit(searchByCityForm)">
         <label for="city">Città:</label>
-        <select name="city" id="city" required ngModel>
+        <select name="city" id="city" required [(ngModel)] = 'city'>
             <option value="" disabled selected>Scegli una città</option>
         @for (city of cities; track city) {<option [value]="city">{{city}}</option>}
         </select>
@@ -11,7 +11,7 @@
 </section>
 <section id="packages">
     @for (p of holidayPackages; track p.id) {
-        <app-holiday-card [package]="p">
+        <app-holiday-card [package]="p" [fromSurvey]="false" [fromSearch]="true">
         </app-holiday-card>
     }  
 </section>

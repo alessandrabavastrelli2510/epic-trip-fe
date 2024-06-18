@@ -14,7 +14,9 @@ import { HolidayCardService } from '../service/holiday-card.service';
 })
 export class HolidayCardComponent {
   @Input("package") holidayPackage: HolidayPackage | undefined;
-    attraction: AttractionVisit | undefined;
+  @Input("fromSurvey") fromSurvey: boolean = false;
+  @Input("fromSearch") fromSearch: boolean = false;
+  attraction: AttractionVisit | undefined;
 
 
   constructor( private hcs: HolidayCardService, private router: Router ){}
@@ -22,7 +24,7 @@ export class HolidayCardComponent {
 
   goToAttraction(av: AttractionVisit){
     this.hcs.setAttraction(av);
-    this.router.navigate(['/attraction']);
+    this.router.navigate(['/attraction'], {state: { fromSurvey: this.fromSurvey, fromSearch: this.fromSearch }});
   }
 
   goToReservation(hp: HolidayPackage){
