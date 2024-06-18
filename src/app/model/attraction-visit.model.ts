@@ -5,4 +5,5 @@ export interface AttractionVisit{
     attractionDescription: string;
     attractionOrder: number;
     visitDay: number;
+    image: string;
   }
