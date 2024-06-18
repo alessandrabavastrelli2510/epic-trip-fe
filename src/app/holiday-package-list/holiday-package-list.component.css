@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     font-family: 'Poppins';
     background-color: #f4f4f9;
@@ -76,14 +75,10 @@ li p:last-child {
     color: #7f8c8d;
 }
 
-/* Section Styles */
 section {
-    background-color: #ffffff;
-    margin: 20px auto;
+    margin: 200px auto;
     padding: 20px;
-    /*max-width: 800px;*/
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -120,7 +115,6 @@ button:focus {
     outline: none;
 }
 
-/* Form Styles */
 form {
     display: flex;
     flex-direction: column;
@@ -131,13 +125,14 @@ form {
 label {
     font-size: 18px;
     color: #34495e;
+    font-size: 18px;
 }
 
 select {
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    font-size: 16px;
+    font-size: 20px;
     width: 200px;
 }
 

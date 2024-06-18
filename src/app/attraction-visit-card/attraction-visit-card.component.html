@@ -3,7 +3,7 @@
   <ul style="list-style: none; padding: 0;">
     <li id="attraction-name">{{ attractionVisit.attractionName }}</li> <!-- Rimuovi i punti elenco e il padding -->
     <div class="img">
-      <img src="/assets/images/packages/istanbul.jpg" alt="">
+      <img src="/assets/images/attraction/{{attractionVisit.city.replace(' ','')}}/{{attractionVisit.image}}" alt="">
     </div>
     <div id="attraction-desc">
       <li>{{ attractionVisit.attractionDescription }}</li>
