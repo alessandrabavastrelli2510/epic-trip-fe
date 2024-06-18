@@ -19,6 +19,7 @@ export class HolidayPackageListComponent implements OnInit{
   types: string [] = [];
   holidayPackages: HolidayPackage [] = [];
   city: string = '';
+  showResult: boolean = false;
 
   constructor(
     private holidayPackageService: HolidayPackageService,
@@ -27,6 +28,7 @@ export class HolidayPackageListComponent implements OnInit{
   ){
     const navigation = this.router.getCurrentNavigation();
     if(navigation?.extras.state){
+      this.showResult = navigation.extras.state['showResult'];
       this.city = navigation.extras.state['city'];
     }
   }
@@ -49,8 +51,7 @@ export class HolidayPackageListComponent implements OnInit{
 
     if(this.city){
       this.searchPackagesByCity(this.city);
-    }
-    
+    }  
   }
 
   searchPackagesByCity(city: string){
@@ -65,5 +66,6 @@ export class HolidayPackageListComponent implements OnInit{
 
   onSubmit(form: NgForm): void{
     this.searchPackagesByCity(form.value.city);
+    this.showResult = true;
   }
 }

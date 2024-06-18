@@ -39,7 +39,7 @@ export class AttractionVisitCardComponent implements OnInit{
   } 
 
   goBackToSearchResult():void{
-    this.router.navigate(['search'], {state: { city: this.attractionVisit?.city}});
+    this.router.navigate(['search'], {state: { showResult: true, city: this.attractionVisit?.city}});
   }
 
   goBackToCard(): void{
