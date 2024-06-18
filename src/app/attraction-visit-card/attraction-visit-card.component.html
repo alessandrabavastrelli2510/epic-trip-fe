@@ -1,9 +1,14 @@
 <article id="card-container">
   @if(attractionVisit){
-  <ul style="list-style: none; padding: 0;">
-    <li id="attraction-name">{{ attractionVisit.attractionName }}</li> <!-- Rimuovi i punti elenco e il padding -->
+  <ul style="list-style: none; padding: 0">
+    <li id="attraction-name">{{ attractionVisit.attractionName }}</li>
     <div class="img">
-      <img src="/assets/images/packages/istanbul.jpg" alt="">
+      <img
+        src="/assets/images/attraction/{{
+          attractionVisit.city.replace(' ', '')
+        }}/{{ attractionVisit.image }}"
+        alt=""
+      />
     </div>
     <div id="attraction-desc">
       <li>{{ attractionVisit.attractionDescription }}</li>
@@ -14,8 +19,13 @@
   @if(fromSurvey){
     <button id="back-button" (click)="goBackToCard()">Torna indietro</button>
 }@else if(!fromSurvey && fromSearch){
-    <button id="back-button" (click)="goBackToSearchResult()">Torna indietro</button>
+    <button id="back-button" (click)="goBackToSearchResult()">
+      Torna indietro
+    </button>
 } @else {
-    <button id="back-button" (click)="goBackToReservation()">Torna indietro</button>
+    <button id="back-button" (click)="goBackToReservation()">
+      Torna indietro
+    </button>
 }
   </div>
+</article>
