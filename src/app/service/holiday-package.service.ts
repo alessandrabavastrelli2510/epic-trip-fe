@@ -5,6 +5,8 @@ import { HolidayPackage } from '../model/holiday-package.model';
 import { Questions } from '../model/survey.model';
 import { SurveyModel } from '../model/survey-form.model';
 import { Restaurant } from '../model/restaurant.model';
+import { Hotel } from '../model/hotel.model';
+import { Guide } from '../model/guide.model';
 
 @Injectable({
   providedIn: 'root'
@@ -60,7 +62,16 @@ export class HolidayPackageService {
     return this.http.get<HolidayPackage>(`${this.packageUrl}/${id}`);
   }
 
-  getRestaurantByPackage(id: number): Observable<Restaurant>{
-    return this.http.get<Restaurant>(`${this.packageUrl}/${id}/restaurants`)
+  getRestaurantsByPackage(id: number): Observable<Restaurant[]>{
+    return this.http.get<Restaurant[]>(`${this.packageUrl}/${id}/restaurants`);
   }
+
+  getHotelbyPackage(id: number): Observable<Hotel>{
+    return this.http.get<Hotel>(`${this.packageUrl}/${id}/hotel`);
+  }
+
+  getGuidebyCity(city: string): Observable<Guide>{
+    return this.http.get<Guide>(`${this.packageUrl}/${city.replace(" ", "%20")}/guide`);
+  }
+
 }

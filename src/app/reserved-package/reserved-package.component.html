@@ -11,6 +11,24 @@
     </li>
     }
   </ol>
+  <div>
+    <span>ristoranti</span>
+    @for (r of restaurants; track r.id){
+    <p>{{ r.name }}</p>
+    }
+  </div>
+  @if(hotel){
+  <div>
+    <span>hotel</span>
+    <p>{{ hotel.name }}</p>
+  </div>
+  }
+  @if(guide){
+    <div>
+      <span>Guida</span>
+      <p>{{ guide.firstname }}</p>
+    </div>
+    }
 </article>
 } @else {
 <div class="no-package-wrapper">

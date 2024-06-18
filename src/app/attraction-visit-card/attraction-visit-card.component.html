@@ -16,16 +16,16 @@
   </ul>
   }
   <div id="button-wrapper">
-  @if(fromSurvey){
+    @if(fromSurvey){
     <button id="back-button" (click)="goBackToCard()">Torna indietro</button>
-}@else if(!fromSurvey && fromSearch){
+    }@else if(!fromSurvey && fromSearch){
     <button id="back-button" (click)="goBackToSearchResult()">
       Torna indietro
     </button>
-} @else {
+    } @else {
     <button id="back-button" (click)="goBackToReservation()">
       Torna indietro
     </button>
-}
+    }
   </div>
 </article>
