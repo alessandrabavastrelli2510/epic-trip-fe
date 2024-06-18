@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AttractionVisitCardComponent } from './attraction-visit-card/attraction-visit-card.component';
 import { ReservedPackageComponent } from './reserved-package/reserved-package.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'search', component: HolidayPackageListComponent},
@@ -18,5 +19,6 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'payment', component: PaymentComponent},
     {path: 'attraction', component: AttractionVisitCardComponent},
-    {path: 'reserved-package', component: ReservedPackageComponent}
+    {path: 'reserved-package', component: ReservedPackageComponent},
+    {path: 'about-us', component: AboutUsComponent}
 ];

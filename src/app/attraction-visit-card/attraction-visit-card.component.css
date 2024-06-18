@@ -33,7 +33,7 @@
   align-items: center;
   padding: 10px;
   max-width: 60%;
-  margin: 80px auto;
+  margin: 10px auto;
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -70,6 +70,6 @@
   flex-direction: column;
   font-weight: bold;
   font-size: 40px;
-  padding: 30px;
+  padding: 20px;
   color: #333;
 }
