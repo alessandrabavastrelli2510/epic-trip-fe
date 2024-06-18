@@ -68,21 +68,22 @@ li p:last-child {
     color: #7f8c8d;
 }
 
-/* Section Styles */
 section {
     background: linear-gradient(to right, #ff7e5f, #feb47b);
     margin: 20px auto;
     padding: 20px;
     max-width: 80%;
+    max-height: auto;
     border-radius: 12px;
     text-align: center;
 }
 
-section #img-section {
+#img-section {
     font-size: 18px;
     color: #7f8c8d;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: none;
+    width: 80%;
 }
 
 button {
@@ -104,18 +105,4 @@ button:hover {
 
 button:focus {
     outline: none;
-}
-
-/* Hover Animation Styles */
-.animated-image:hover {
-    animation: zoomInOut 0.5s forwards;
-}
-
-@keyframes zoomInOut {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
 }

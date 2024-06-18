@@ -55,11 +55,17 @@ li {
     cursor: pointer;
     list-style-type: none;
     background: #ecf0f1;
+    border-width: 3px;
     padding: 10px;
     margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px #ff996d;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px #444;
     flex-direction: column;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+li:hover{
+    transform: translateY(-5px);
 }
 
 li p {
@@ -124,7 +130,7 @@ li p:last-child {
     padding: 10px;
     border-radius: 12px;
     color: #ffffff;
-    font-size: 30px;
+    font-size: 24px;
     transform: 0.3s ease;
     background-color: #000000;
     transition: background-color 0.3s ease, transform 0.3s ease;
