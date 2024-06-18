@@ -91,7 +91,7 @@ body {
     outline: 0;
     border: 1px solid rgba(105, 105, 105, 0.397);
     border-radius: 10px;
-    background-color: #ffffff; /* Imposta lo sfondo bianco per gli input */
+    background-color: #ffffff;
 }
 
 .form label .input + span {
@@ -120,7 +120,7 @@ body {
 .input {
     font-size: medium;
     font-family: Poppins;
-    background-color: #ffffff; /* Imposta lo sfondo bianco per gli input */
+    background-color: #ffffff;
 }
 
 .purchase--btn {
@@ -146,7 +146,7 @@ body {
     grid-template-columns: 33% 34% 33%;
     gap: 20px;
     padding: 10px;
-    margin-left: -10px; /* Aggiunto per spostare i pulsanti verso sinistra */
+    margin-left: -10px;
 }
 
 .payment--options button {
@@ -162,7 +162,7 @@ body {
 }
 
 .payment--options button img {
-    max-height: 45px; /* Set max-height to ensure images fit within buttons */
+    max-height: 45px;
     max-width: 100%;
     object-fit: contain;
 }
@@ -231,7 +231,7 @@ body {
     padding: 0 0 0 16px;
     border-radius: 9px;
     outline: none;
-    background-color: #ffffff; /* Imposta lo sfondo bianco per gli input */
+    background-color: #ffffff;
     border: 1px solid #e5e5e500;
     transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
 }
@@ -239,7 +239,7 @@ body {
 .input_field:focus {
     border: 1px solid transparent;
     box-shadow: 0px 0px 0px 2px #242424;
-    background-color: #ffffff; /* Imposta lo sfondo bianco per gli input quando focalizzati */
+    background-color: #ffffff;
 }
 
 .purchase--btn {
@@ -260,7 +260,6 @@ body {
     transform: translateY(-5px);
 }
 
-/* Reset input number styles */
 .input_field::-webkit-outer-spin-button,
 .input_field::-webkit-inner-spin-button {
     -webkit-appearance: none;

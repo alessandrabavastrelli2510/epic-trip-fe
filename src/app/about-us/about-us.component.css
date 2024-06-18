@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+
+h1 {
+    color: rgb(0, 0, 0);
+    font-size: 3em;
+    display: flex;
+    justify-content: center
+}
+
+main {
+    padding: 20px;
+}
+
+article.content {
+    background-color: #fffacd;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#logo{
+    display: flex;
+    justify-content: center
+}
+
+#img{
+    width: 15%;
+}
