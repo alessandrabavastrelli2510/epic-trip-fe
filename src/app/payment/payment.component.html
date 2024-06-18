@@ -1,5 +1,5 @@
 <div class="model">
-    <form class="form">
+    <form class="form" #paymentForm="ngForm" (ngSubmit)="onSubmit(paymentForm)">
       <div id="register-div">
         <p class="title">Pagamento</p>
       </div>
@@ -28,20 +28,20 @@
       <div class="credit-card-info--form">
         <div class="input_container">
           <label for="card_name" class="input_label">Nome e cognome</label>
-          <input id="card_name" class="input_field input" type="text" name="input-name" title="Input title" placeholder="Nome e cognome">
+          <input id="card_name" class="input_field input" type="text" name="input-name" title="Input title" placeholder="Nome e cognome" ngModel>
         </div>
         <div class="input_container">
           <label for="card_number" class="input_label">Numero della carta</label>
-          <input id="card_number" class="input_field input" type="number" name="input-name" title="Input title" placeholder="0000 0000 0000 0000">
+          <input id="card_number" class="input_field input" type="number" name="input-name" title="Input title" placeholder="0000 0000 0000 0000" ngModel>
         </div>
         <div class="input_container">
           <label for="expiry_date" class="input_label">Data di scadenza / CVV</label>
           <div class="split">
-            <input id="expiry_date" class="input_field input" type="text" name="input-name" title="Expiry Date" placeholder="Scadenza">
-            <input id="cvv" class="input_field input" type="number" name="cvv" title="CVV" placeholder="CVV">
+            <input id="expiry_date" class="input_field input" type="text" name="input-name" title="Expiry Date" placeholder="Scadenza" ngModel>
+            <input id="cvv" class="input_field input" type="number" name="cvv" title="CVV" placeholder="CVV" ngModel>
           </div>
         </div>
       </div>
-      <button class="submit purchase--btn">Checkout</button>
+      <button class="submit purchase--btn" type="submit">Checkout</button>
     </form>
   </div>

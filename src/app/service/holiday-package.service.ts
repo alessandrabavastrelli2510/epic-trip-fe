@@ -52,7 +52,7 @@ export class HolidayPackageService {
 
   getPackageByAnswers(answers: SurveyModel): Observable<HolidayPackage>{
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-     return this.http.post<HolidayPackage>(`${this.packageUrl}/find`, answers, {headers});
+     return this.http.post<HolidayPackage>(`${this.packageUrl}`, answers, {headers});
 
   }
 
