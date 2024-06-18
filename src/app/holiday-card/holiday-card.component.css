@@ -3,7 +3,7 @@ article {
     color: #333;
     margin: 0;
     padding: 0;
-    background-color: #FF996D;
+    background-color: #ffffff;
     margin: 20px auto;
     padding: 20px;
     max-width: 800px;
@@ -15,6 +15,7 @@ article {
 
 article:hover {
     transform: translateY(-10px);
+    background-color: #FF996D;
 }
 
 h3 {
@@ -50,11 +51,15 @@ ol {
 }
 
 li {
+    display: flex;
+    cursor: pointer;
+    list-style-type: none;
     background: #ecf0f1;
-    padding: 15px;
+    padding: 10px;
     margin-bottom: 10px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px #ff996d;
+    flex-direction: column;
 }
 
 li p {
@@ -106,3 +111,32 @@ li p:last-child {
     font-size: 30px;
     color: #333;
 }
+
+#card{
+    border: 3px solid #FF996D;
+    border-style: solid;
+    border-color: #FF996D;
+}
+
+#prenota {
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 30px;
+    transform: 0.3s ease;
+    background-color: #000000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+  
+#prenota:hover {
+    background-color: #927169;
+    transform: translateY(-5px);
+    cursor: pointer;
+  }
+#prenota:focus{
+    outline: none;
+  }

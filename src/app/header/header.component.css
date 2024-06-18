@@ -61,3 +61,7 @@ header {
   nav ul li a:hover {
     color: #ffe57f;
   }
+
+  #disconnect{
+    cursor: pointer;
+  }

@@ -1,5 +1,5 @@
 @if (holidayPackage) {
-<article>
+<article id="card">
   <h3>{{ holidayPackage.title }}</h3>
   <p>{{ holidayPackage.city }} , {{ holidayPackage.country }}</p>
   <p>{{ holidayPackage.description }}</p>
@@ -11,10 +11,12 @@
     </li>
     }
   </ol>
-  <button (click)="goToReservation(holidayPackage)">Prenota!</button>
+  <button (click)="goToReservation(holidayPackage)" id="prenota">
+    Prenota!
+  </button>
 </article>
 } @else {
-  <div class="no-package-wrapper">
+<div class="no-package-wrapper">
   <p>Nessun pacchetto trovato!</p>
   <button id="home-button" routerLink="">Torna alla home</button>
 </div>

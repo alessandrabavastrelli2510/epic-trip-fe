@@ -1,67 +1,108 @@
 @if(!showResult){
 <section>
-    <h3>Rispondi a queste domande per trovare la scelta più adatta per te!</h3>
-    <form #sendSurveyForm="ngForm" (ngSubmit)="onSubmit(sendSurveyForm)">
-        <ol>
-            @for(q of questions; track q.id){
-                <li><label for="{{ q.id }}">{{ q.question }}</label></li>
-                @switch (q.id) {
-                    @case(1){
-                        <div class="container">
-                            @for(c of cities; track c){
-                                <label for="{{ c }}">
-                                <input type="radio" id="{{ c }}"name="cities" value="{{ c }}" required ngModel>
-                                <span>{{ c }}</span>
-                                </label>
-                        }
-                        </div>
-                    }
-                    @case(2){
-                        <input type="number" name="numPeople" min="1" max="10" required ngModel>
-                    }
-                    @case(3){
-                        <input type="date" name="startDate" [min]="minDate" (change)="validateDate($event)" required ngModel>
-                        @if (errorMessage) {
-                            <div class = "error-message">{{ errorMessage }}</div>
-                        }
-                    }
-                    @case (4){
-                        <div class="container">
-                            <label for="three">
-                            <input type="radio" id="three" name="days" value="3" required ngModel>
-                            <span>3</span></label>
-                            <label for="five">
-                            <input type="radio" id="five" name="days" value="5" required ngModel>
-                            <span>5</span></label>
-                        </div>
-                    }
-                    @case (5){
-                        <div class="container">
-                        @for(t of types; track t){
-                            <label for="{{ t }}">
-                            <input type="radio" id="{{ t }}"name="types" value="{{ t }}" required ngModel>
-                            <span>{{ t }}</span></label>
-                    }
-                    </div>
-                    }
-                    @case (6) {
-                        <div class="container">
-                            <label for="$">
-                            <input type="radio" id="$" name="cost" value="$" required ngModel>
-                            <span>$</span></label>
-                            <label for="$$">
-                            <input type="radio" id="$$" name="cost" value="$$" required ngModel>
-                            <span>$$</span></label>
-                            <label for="$$$">
-                            <input type="radio" id="$$$" name="cost" value="$$$" required ngModel>
-                            <span>$$$</span></label>
-                        </div>
-                    }
-                }
-            }
-        </ol>
-        <button type="submit">Cerca</button>
-    </form>
+  <h3>Rispondi a queste domande per trovare la scelta più adatta per te!</h3>
+  <form #sendSurveyForm="ngForm" (ngSubmit)="onSubmit(sendSurveyForm)">
+    <ol>
+      @for(q of questions; track q.id){
+      <li>
+        <label for="{{ q.id }}">{{ q.question }}</label>
+      </li>
+      @switch (q.id) { @case(1){
+      <div class="container">
+        @for(c of cities; track c){
+        <label for="{{ c }}">
+          <input
+            type="radio"
+            id="{{ c }}"
+            name="cities"
+            value="{{ c }}"
+            required
+            ngModel
+          />
+          <span>{{ c }}</span>
+        </label>
+        }
+      </div>
+      } @case(2){
+      <input type="number" name="numPeople" min="1" max="10" required ngModel />
+      } @case(3){
+      <input
+        type="date"
+        name="startDate"
+        [min]="minDate"
+        (change)="validateDate($event)"
+        required
+        ngModel
+      />
+      @if (errorMessage) {
+      <div class="error-message">{{ errorMessage }}</div>
+      } } @case (4){
+      <div class="container">
+        <label for="three">
+          <input
+            type="radio"
+            id="three"
+            name="days"
+            value="3"
+            required
+            ngModel
+          />
+          <span>3</span></label
+        >
+        <label for="five">
+          <input
+            type="radio"
+            id="five"
+            name="days"
+            value="5"
+            required
+            ngModel
+          />
+          <span>5</span></label
+        >
+      </div>
+      } @case (5){
+      <div class="container">
+        @for(t of types; track t){
+        <label for="{{ t }}">
+          <input
+            type="radio"
+            id="{{ t }}"
+            name="types"
+            value="{{ t }}"
+            required
+            ngModel
+          />
+          <span>{{ t }}</span></label
+        >
+        }
+      </div>
+      } @case (6) {
+      <div class="container">
+        <label for="$">
+          <input type="radio" id="$" name="cost" value="$" required ngModel />
+          <span>$</span></label
+        >
+        <label for="$$">
+          <input type="radio" id="$$" name="cost" value="$$" required ngModel />
+          <span>$$</span></label
+        >
+        <label for="$$$">
+          <input
+            type="radio"
+            id="$$$"
+            name="cost"
+            value="$$$"
+            required
+            ngModel
+          />
+          <span>$$$</span></label
+        >
+      </div>
+      } } }
+    </ol>
+    <button type="submit">Cerca</button>
+  </form>
 </section>
 } @else {
     <div>
@@ -74,7 +115,5 @@
                 <button (click)="backToSurvey()">Torna al survey</button>
               </div>
         </div>
-
-
       </div>
 }

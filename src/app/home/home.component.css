@@ -105,3 +105,17 @@ button:hover {
 button:focus {
     outline: none;
 }
+
+/* Hover Animation Styles */
+.animated-image:hover {
+    animation: zoomInOut 0.5s forwards;
+}
+
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}

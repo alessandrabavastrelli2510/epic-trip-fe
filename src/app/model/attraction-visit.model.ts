@@ -5,6 +5,7 @@ export interface AttractionVisit{
     attractionDescription: string;
     attractionOrder: number;
     visitDay: number;
+    image: string;
     city: string;
     packageId: number;
   }
