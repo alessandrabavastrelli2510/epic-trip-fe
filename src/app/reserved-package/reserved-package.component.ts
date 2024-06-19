@@ -8,6 +8,7 @@ import { HolidayPackageService } from '../service/holiday-package.service';
 import { Restaurant } from '../model/restaurant.model';
 import { Hotel } from '../model/hotel.model';
 import { Guide } from '../model/guide.model';
+import { ReservationService } from '../service/reservation.service';
 
 @Component({
   selector: 'app-reserved-package',
@@ -25,10 +26,21 @@ export class ReservedPackageComponent implements OnInit {
   constructor(
     private hcs: HolidayCardService,
     private hps: HolidayPackageService,
+    private rs: ReservationService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.rs.hotel$.subscribe({
+      next: hotel => this.hotel = hotel,
+      error: e => console.log(e),
+    })
+
+    this.rs.guide$.subscribe({
+      next: guide => this.guide = guide,
+      error: e => console.log(e)
+    })
+
     this.hcs.holidayPackage$.subscribe({
       next: (hPackage) => (this.holidayPackage = hPackage),
       error: (err) => console.log('errore nel passaggio di pacchetto', err),
@@ -41,23 +53,6 @@ export class ReservedPackageComponent implements OnInit {
           console.log(this.restaurants);
         },
         error: (err) => console.log('errore nel recupero ristoranti', err),
-      });
-
-      this.hps.getHotelbyPackage(this.holidayPackage.id).subscribe({
-        next: (h) => {
-          console.log(h);
-          this.hotel = h;
-          console.log(this.hotel);
-        },
-        error: (err) => console.log('errore nel recupero hotel', err),
-      });
-
-      this.hps.getGuidebyCity(this.holidayPackage.city).subscribe({
-        next: (g) => {
-          console.log(g);
-          this.guide = g;
-        },
-        error: (err) => console.log('errore nel recupero della guida', err),
       });
     }
   }

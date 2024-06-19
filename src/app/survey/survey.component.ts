@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { HolidayCardComponent } from '../holiday-card/holiday-card.component';
 import { Answer } from '../model/answer.model';
 import { FullSurveyModel } from '../model/full-survey.model';
+import { ReservationService } from '../service/reservation.service';
 @Component({
   selector: 'app-survey',
   standalone: true,
@@ -26,7 +27,7 @@ export class SurveyComponent implements OnInit{
   showResult = false;
   
 
-  constructor(private holidayPackageService: HolidayPackageService, private router: Router ){
+  constructor(private holidayPackageService: HolidayPackageService, private rs: ReservationService ,private router: Router ){
     const navigation = this.router.getCurrentNavigation();
     if(navigation?.extras.state){
       this.showResult = navigation.extras.state['showResult'];
@@ -79,6 +80,10 @@ export class SurveyComponent implements OnInit{
   }
 
   onSubmit(form: NgForm){
+
+    this.rs.setNumPeople(form.value.numPeople);
+    this.rs.setStartDate(form.value.startDate);
+    this.rs.setDays(Number(form.value.days));
     
     const cityAnswer: Answer = {
       questionId: this.getRadioButton("cities").getAttribute("data-question-id")!,
