@@ -1,1 +1,11 @@
-<p>{{faq.question}}, {{faq.answer}}</p>
+<section id="faq">
+    @for (f of faqs; track f.id) {
+    <h3>
+        {{ f.question }}
+    </h3>
+        <p>{{ f.answer }}
+        </p>
+    
+
+    }
+  </section>
