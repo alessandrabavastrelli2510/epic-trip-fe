@@ -80,10 +80,6 @@ export class SurveyComponent implements OnInit{
   }
 
   onSubmit(form: NgForm){
-
-    this.rs.setNumPeople(form.value.numPeople);
-    this.rs.setStartDate(form.value.startDate);
-    this.rs.setDays(Number(form.value.days));
     
     const cityAnswer: Answer = {
       questionId: this.getRadioButton("cities").getAttribute("data-question-id")!,
@@ -115,15 +111,6 @@ export class SurveyComponent implements OnInit{
       answer: form.value.cost
     }
 
-    // const fullAnswers: FullSurveyModel = {
-    //   city: cityAnswer,
-    //   numPeople: numPeopleAnswer,
-    //   startDate: startDateAnswer,
-    //   packageDuration: packageDurationAnswer,
-    //   packageType: packageTypeAnswer,
-    //   priceRange: priceRangeAnswer
-    // }
-
     const fullAnswers: Answer[] = [cityAnswer, numPeopleAnswer, startDateAnswer, packageDurationAnswer,
                                     packageTypeAnswer, priceRangeAnswer];
 
@@ -148,6 +135,10 @@ export class SurveyComponent implements OnInit{
       },
       error: (err) => console.log(err)
     });
+
+    this.rs.setNumPeople(form.value.numPeople);
+    this.rs.setStartDate(form.value.startDate);
+    this.rs.setDays(Number(form.value.days));
   }
   backToSurvey():void{
 
