@@ -11,9 +11,11 @@
     </li>
     }
   </ol>
-  <button (click)="goToReservation(holidayPackage)" id="prenota">
-    Prenota ora!
-  </button>
+  @if(fromSurvey){
+    <button (click)="goToReservation(holidayPackage)" id="prenota">
+      Prenota ora!
+    </button>
+  } 
 </article>
 } @else {
 <div class="no-package-wrapper">

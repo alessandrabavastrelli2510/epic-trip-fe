@@ -26,7 +26,6 @@ export class PaymentComponent implements OnInit {
   map: any;
   marker: any;
   
-
   holidayPackage: HolidayPackage | undefined;
   restaurants: Restaurant[] = [];
   hotel: Hotel | undefined;
@@ -92,6 +91,11 @@ export class PaymentComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     console.log(form.value);
+
+    const setTimeTo1330 = (date: Date) => {
+      date.setHours(13, 30, 0, 0);
+      return date;
+    }
     
     const reservation: ReservationModel = {
       packageId : this.holidayPackage!.id,
@@ -106,15 +110,15 @@ export class PaymentComponent implements OnInit {
       restaurantCheckIns: [
         {
           restaurantId : this.restaurants[0].id,
-          checkIn : this.startDate!,
+          checkIn : setTimeTo1330(new Date(this.startDate!)),
         },
         {
           restaurantId : this.restaurants[1].id,
-          checkIn : new Date(this.startDate!.getFullYear(), this.startDate!.getMonth(), this.startDate!.getDate() + 1),
+          checkIn : setTimeTo1330(new Date(this.startDate!.getFullYear(), this.startDate!.getMonth(), this.startDate!.getDate() + 1)),
         },
         {
           restaurantId : this.restaurants[2].id,
-          checkIn: new Date(this.startDate!.getFullYear(), this.startDate!.getMonth(), this.startDate!.getDate() + 2),
+          checkIn: setTimeTo1330(new Date(this.startDate!.getFullYear(), this.startDate!.getMonth(), this.startDate!.getDate() + 2)),
         }
       ]
     }
