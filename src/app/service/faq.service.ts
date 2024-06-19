@@ -1,5 +1,5 @@
 import { Injectable} from "@angular/core";
-import { faq } from "../model/faq.model";
+import { Faq } from "../model/faq.model";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
@@ -14,7 +14,7 @@ import { HttpClient } from "@angular/common/http";
 
     }
 
-    getFaq(): Observable<string[]>{
-        return this.http.get<string[]>(`${this.faqUrl}/faq`);
+    getFaq(): Observable<Faq[]>{
+        return this.http.get<Faq[]>(`${this.faqUrl}`);
       }
   }
