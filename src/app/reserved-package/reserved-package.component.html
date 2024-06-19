@@ -1,5 +1,6 @@
+<p>Ecco la tua prenotazione!</p>
 @if (holidayPackage) {
-<article id="card">
+<article id="card" class="package-card">
   <div class="card-effect">
     <div class="card-effect-inner">
       <div class="card-effect-front">
@@ -9,7 +10,7 @@
   <h3>{{ holidayPackage.title }}</h3>
   <p>{{ holidayPackage.city }} , {{ holidayPackage.country }}</p>
   <p class="description">{{ holidayPackage.description }}</p>
-  <ol>
+  <ol id="attraction-visits">
     @for (av of holidayPackage.attractionVisits; track av.id){
     <li>
       <p (click)="goToAttraction(av)">{{ av.attractionName }}</p>
@@ -21,12 +22,16 @@
   </div>
   </article>
   <article id="card">
-  <div>
+    <div class="card-effect">
+      <div class="card-effect-inner">
+        <div class="card-effect-front">
+    <img src="assets/images/restaurantsandhotels/restaurantsandhotels.jpg" alt="" />
+    </div>
+    <div class="card-effect-back">
     <h3>Ristoranti</h3>
     @for (r of restaurants; track r.id){
     <p>{{ r.name }}</p>
     }
-  </div>
   @if(hotel){
   <div>
     <h3>Hotel</h3>
@@ -34,17 +39,25 @@
     @if(showMap){
       <div id="map" style="height: 400px; width: 100%;"></div>
     }
-    
   </div>
   }
+</div>
+</div>
+</div>
 </article>
   @if(guide){
     <article id="card">
-    <div>
+      <div class="card-effect">
+        <div class="card-effect-inner">
+          <div class="card-effect-front">
+      <img id="guide-image" src="/assets/images/guide/{{guide.image}}" alt="">
+    </div>
+    <div class="card-effect-back">
       <span>Guida</span>
-      <p>{{ guide.firstname }}</p>
-      <img src="/assets/images/guide/{{guide.image}}" alt="">
-      <p>{{guide.introduction}}</p>
+      <p class="description">{{ guide.firstname }}</p>
+      <p class="description">{{guide.introduction}}</p>
+    </div>
+    </div>
     </div>
   </article>
     }
