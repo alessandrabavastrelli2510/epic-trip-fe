@@ -5,9 +5,10 @@
     <ol>
       @for(q of questions; track q.id){
       <li>
-        <label for="{{ q.id }}">{{ q.question }}</label>
+        <label>{{ q.question }}</label>
       </li>
-      @switch (q.id) { @case(1){
+      @switch (q.id) { 
+        @case(1){
       <div class="container">
         @for(c of cities; track c){
         <label for="{{ c }}">
@@ -18,21 +19,24 @@
             value="{{ c }}"
             required
             ngModel
+            [attr.data-question-id]="q.id"
           />
           <span>{{ c }}</span>
         </label>
         }
       </div>
       } @case(2){
-      <input type="number" name="numPeople" min="1" max="10" required ngModel />
+      <input type="number" name="numPeople" id="numPeople" min="1" max="10" required ngModel [attr.data-question-id]="q.id"/>
       } @case(3){
       <input
         type="date"
         name="startDate"
         [min]="minDate"
+        id="startDate"
         (change)="validateDate($event)"
         required
         ngModel
+        [attr.data-question-id]="q.id"
       />
       @if (errorMessage) {
       <div class="error-message">{{ errorMessage }}</div>
@@ -46,6 +50,7 @@
             value="3"
             required
             ngModel
+            [attr.data-question-id]="q.id"
           />
           <span>3</span></label
         >
@@ -57,6 +62,7 @@
             value="5"
             required
             ngModel
+            [attr.data-question-id]="q.id"
           />
           <span>5</span></label
         >
@@ -72,6 +78,7 @@
             value="{{ t }}"
             required
             ngModel
+            [attr.data-question-id]="q.id"
           />
           <span>{{ t }}</span></label
         >
@@ -80,11 +87,11 @@
       } @case (6) {
       <div class="container">
         <label for="$">
-          <input type="radio" id="$" name="cost" value="$" required ngModel />
+          <input type="radio" id="$" name="cost" value="$" required ngModel [attr.data-question-id]="q.id"/>
           <span>$</span></label
         >
         <label for="$$">
-          <input type="radio" id="$$" name="cost" value="$$" required ngModel />
+          <input type="radio" id="$$" name="cost" value="$$" required ngModel [attr.data-question-id]="q.id"/>
           <span>$$</span></label
         >
         <label for="$$$">
@@ -95,6 +102,7 @@
             value="$$$"
             required
             ngModel
+            [attr.data-question-id]="q.id"
           />
           <span>$$$</span></label
         >

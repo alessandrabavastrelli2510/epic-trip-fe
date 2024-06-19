@@ -7,6 +7,8 @@ import { SurveyModel } from '../model/survey-form.model';
 import { Restaurant } from '../model/restaurant.model';
 import { Hotel } from '../model/hotel.model';
 import { Guide } from '../model/guide.model';
+import { FullSurveyModel } from '../model/full-survey.model';
+import { Answer } from '../model/answer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -74,4 +76,7 @@ export class HolidayPackageService {
     return this.http.get<Guide>(`${this.packageUrl}/${city.replace(" ", "%20")}/guide`);
   }
 
+  saveSurveyAnswers(answers: Answer[]): Observable<Answer[]>{
+    return this.http.post<Answer[]>(`${this.surveyUrl}`, answers);
+  }
 }

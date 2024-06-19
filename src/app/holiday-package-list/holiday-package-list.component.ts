@@ -43,11 +43,11 @@ export class HolidayPackageListComponent implements OnInit{
     this.holidayPackageService.cities$.subscribe(cities => this.cities = cities);
     this.holidayPackageService.getCities();
     
-    this.holidayPackageService.getTypes().subscribe({
-      next: (data => this.types = data),
-      error: (error => console.log(error)),
-      complete: (() => console.log("tutto bene!"))
-    });
+    // this.holidayPackageService.getTypes().subscribe({
+    //   next: (data => this.types = data),
+    //   error: (error => console.log(error)),
+    //   complete: (() => console.log("tutto bene!"))
+    // });
 
     if(this.city){
       this.searchPackagesByCity(this.city);

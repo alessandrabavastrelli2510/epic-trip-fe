@@ -31,7 +31,6 @@ export class AttractionVisitCardComponent implements OnInit{
     this.hcs.attraction$.subscribe({
       next: attraction => {
         this.attractionVisit = attraction;
-        console.log(this.attractionVisit);
       },
       error: err => console.log("errore nel passaggio di attrazione", err)
     });

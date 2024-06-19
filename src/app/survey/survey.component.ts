@@ -6,6 +6,8 @@ import { SurveyModel } from '../model/survey-form.model';
 import { HolidayPackage } from '../model/holiday-package.model';
 import { Router } from '@angular/router';
 import { HolidayCardComponent } from '../holiday-card/holiday-card.component';
+import { Answer } from '../model/answer.model';
+import { FullSurveyModel } from '../model/full-survey.model';
 @Component({
   selector: 'app-survey',
   standalone: true,
@@ -71,8 +73,55 @@ export class SurveyComponent implements OnInit{
     }
     
   }
+
+  getRadioButton(name: string): HTMLInputElement{
+    return document.querySelector(`input[name=${name}]:checked`) as HTMLInputElement;
+  }
+
   onSubmit(form: NgForm){
     
+    const cityAnswer: Answer = {
+      questionId: this.getRadioButton("cities").getAttribute("data-question-id")!,
+      answer: form.value.cities
+    }
+  
+    const numPeopleAnswer: Answer = {
+      questionId: document.getElementById("numPeople")?.getAttribute("data-question-id")!,
+      answer: form.value.numPeople
+    }
+
+    const startDateAnswer: Answer = {
+      questionId: document.getElementById("startDate")?.getAttribute("data-question-id")!,
+      answer: form.value.startDate
+    }
+
+    const packageDurationAnswer: Answer = {
+      questionId: this.getRadioButton("days").getAttribute("data-question-id")!,
+      answer: form.value.days
+    }
+
+    const packageTypeAnswer: Answer ={ 
+      questionId: this.getRadioButton("types").getAttribute("data-question-id")!,
+      answer: form.value.types
+    }
+
+    const priceRangeAnswer: Answer = {
+      questionId: this.getRadioButton("cost").getAttribute("data-question-id")!,
+      answer: form.value.cost
+    }
+
+    // const fullAnswers: FullSurveyModel = {
+    //   city: cityAnswer,
+    //   numPeople: numPeopleAnswer,
+    //   startDate: startDateAnswer,
+    //   packageDuration: packageDurationAnswer,
+    //   packageType: packageTypeAnswer,
+    //   priceRange: priceRangeAnswer
+    // }
+
+    const fullAnswers: Answer[] = [cityAnswer, numPeopleAnswer, startDateAnswer, packageDurationAnswer,
+                                    packageTypeAnswer, priceRangeAnswer];
+
     const answers : SurveyModel = {
       city : form.value.cities,
       numPeople : form.value.numPeople,
@@ -81,7 +130,11 @@ export class SurveyComponent implements OnInit{
       packageType: form.value.types,
       priceRange: form.value.cost
     };
-
+    
+    this.holidayPackageService.saveSurveyAnswers(fullAnswers).subscribe({
+      next: as => console.log(as),
+      error: e => console.log(e)
+    })
     
     this.holidayPackageService.getPackageByAnswers(answers).subscribe({
       next: pack => {
