@@ -77,7 +77,7 @@ export class PaymentComponent implements OnInit {
   calculateEndDate():void {
     if (this.startDate && this.days > 0) {
       const endDate = new Date(this.startDate);
-      endDate.setDate(this.startDate.getDate() + this.days);
+      endDate.setDate(this.startDate.getDate() + this.days - 1);
       this.endDate = endDate;
     }
   }
@@ -114,7 +114,7 @@ export class PaymentComponent implements OnInit {
         },
         {
           restaurantId : this.restaurants[2].id,
-          checkIn: this.endDate!,
+          checkIn: new Date(this.startDate!.getFullYear(), this.startDate!.getMonth(), this.startDate!.getDate() + 2),
         }
       ]
     }
