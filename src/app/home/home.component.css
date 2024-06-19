@@ -14,7 +14,6 @@ h1, h2 {
 #features, #dynamic-content {
     background-color: #fff;
     margin: 20px auto;
-    padding: 20px;
     max-width: 1200px;
     border-radius: 12px;
     text-align: center;
@@ -22,7 +21,6 @@ h1, h2 {
 
 #additional-links {
     margin: 20px auto;
-    padding: 20px;
     max-width: 1200px;
     text-align: center;
 }
@@ -42,8 +40,8 @@ h1, h2 {
 
 .feature-item img {
     width: 100%;
-    max-width: 320px;
-    height: 180px;
+    max-width: 350px;
+    height: 200px;
     object-fit: cover;
     border-radius: 8px;
 }
