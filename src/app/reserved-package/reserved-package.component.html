@@ -20,13 +20,19 @@
   @if(hotel){
   <div>
     <span>hotel</span>
-    <p>{{ hotel.name }}</p>
+    <p (click)="initializeMap(hotel.latitude, hotel.longitude)">{{ hotel.name }}</p>
+    @if(showMap){
+      <div id="map" style="height: 400px; width: 100%;"></div>
+    }
+    
   </div>
   }
   @if(guide){
     <div>
       <span>Guida</span>
       <p>{{ guide.firstname }}</p>
+      <img src="/assets/images/guide/{{guide.image}}" alt="">
+      <p>{{guide.introduction}}</p>
     </div>
     }
 </article>

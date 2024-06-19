@@ -6,4 +6,5 @@ export interface Guide{
     email: string;
     introduction: string;
     workplace: string;
+    image: string;
 }

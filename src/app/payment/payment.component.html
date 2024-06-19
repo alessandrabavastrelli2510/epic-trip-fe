@@ -1,3 +1,18 @@
+<div>
+  <p>La nostra proposta di ospitalità: </p>
+  <p>{{hotel?.name}}</p>
+  <p>{{hotel?.street}} {{hotel?.houseNumber}} {{hotel?.city}}</p>
+  <p>Camera doppia e singola deluxe!</p>
+  <div id="map" style="height: 400px; width: 100%;"></div>
+</div>
+<div>
+  <p>Per gustarsi al meglio proponiamo i seguenti ristoranti: </p>
+  @for (r of restaurants; track r.id) {
+    <p>{{r.name}}</p>
+    <p>{{r.street}} {{r.houseNumber}}</p>
+  }
+</div>
+
 <div class="model">
     <form class="form" #paymentForm="ngForm" (ngSubmit)="onSubmit(paymentForm)">
       <div id="register-div">
@@ -44,4 +59,8 @@
       </div>
       <button class="submit purchase--btn" type="submit">Checkout</button>
     </form>
+
+    
   </div>
+ 
+  

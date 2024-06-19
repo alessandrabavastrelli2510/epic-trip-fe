@@ -10,6 +10,8 @@ import { Hotel } from '../model/hotel.model';
 import { Guide } from '../model/guide.model';
 import { ReservationService } from '../service/reservation.service';
 
+declare let L: any;
+
 @Component({
   selector: 'app-reserved-package',
   standalone: true,
@@ -18,10 +20,14 @@ import { ReservationService } from '../service/reservation.service';
   styleUrl: './reserved-package.component.css',
 })
 export class ReservedPackageComponent implements OnInit {
+
+  map: any;
+  marker: any;
   holidayPackage: HolidayPackage | undefined;
   restaurants: Restaurant[] = [];
   hotel: Hotel | undefined;
   guide: Guide | undefined;
+  showMap: boolean = false;
 
   constructor(
     private hcs: HolidayCardService,
@@ -54,6 +60,26 @@ export class ReservedPackageComponent implements OnInit {
         },
         error: (err) => console.log('errore nel recupero ristoranti', err),
       });
+    }
+  }
+
+  initializeMap(lat: number, lng: number): void {
+    this.showMap = true;
+    const todoMap = document.getElementById('map');
+    if (!this.map && todoMap) {
+      this.map = L.map(todoMap).setView([lat, lng], 17);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19
+      }).addTo(this.map);
+      this.marker = L.marker([lat, lng]).addTo(this.map);
+    } else if (this.map) {
+      this.map.setView([lat, lng], 13);
+      this.marker.setLatLng([lat, lng]);
+    }
+    if (todoMap) {
+      todoMap.style.display = 'block';
+      this.map.invalidateSize();
     }
   }
 

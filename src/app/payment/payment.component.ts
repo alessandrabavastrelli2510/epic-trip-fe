@@ -10,15 +10,23 @@ import { Guide } from '../model/guide.model';
 import { ReservationService } from '../service/reservation.service';
 import { ReservationModel } from '../model/reservation.model';
 import { RestaurantCheckIns } from '../model/restaurant-check-in.model';
+import { DatePipe } from '@angular/common';
 
+declare let L: any;
 @Component({
   selector: 'app-payment',
   standalone: true,
   imports: [FormsModule],
   templateUrl: './payment.component.html',
-  styleUrl: './payment.component.css'
+  styleUrls: ['./payment.component.css'],
+  providers: [DatePipe]
 })
 export class PaymentComponent implements OnInit {
+
+  map: any;
+  marker: any;
+  
+
   holidayPackage: HolidayPackage | undefined;
   restaurants: Restaurant[] = [];
   hotel: Hotel | undefined;
@@ -28,10 +36,13 @@ export class PaymentComponent implements OnInit {
   endDate: Date | undefined;
   days: number = 0;
   
-  
-
-
-  constructor(private hcs: HolidayCardService, private hps: HolidayPackageService, private rs: ReservationService, private router: Router){}
+  constructor(
+    private hcs: HolidayCardService,
+    private hps: HolidayPackageService,
+    private rs: ReservationService,
+    private router: Router,
+    private datePipe: DatePipe
+  ) {}
 
   ngOnInit(): void {
     this.getPackageInfo(); 
@@ -71,11 +82,17 @@ export class PaymentComponent implements OnInit {
     }
   }
 
+  formatDate(date: Date): string {
+    return this.datePipe.transform(date, 'yyyy-MM-dd')!;
+  }
 
-  onSubmit(form: NgForm){
+  formatDateTime(date: Date): string {
+    return this.datePipe.transform(date, 'yyyy-MM-ddTHH:mm')!;
+  }
+
+  onSubmit(form: NgForm): void {
     console.log(form.value);
     
-
     const reservation: ReservationModel = {
       packageId : this.holidayPackage!.id,
       peopleCount : this.numPeople,
@@ -93,7 +110,7 @@ export class PaymentComponent implements OnInit {
         },
         {
           restaurantId : this.restaurants[1].id,
-          checkIn : new Date (this.startDate!.getFullYear(), this.startDate!.getMonth(), this.startDate!.getDate()+1),
+          checkIn : new Date(this.startDate!.getFullYear(), this.startDate!.getMonth(), this.startDate!.getDate() + 1),
         },
         {
           restaurantId : this.restaurants[2].id,
@@ -102,13 +119,29 @@ export class PaymentComponent implements OnInit {
       ]
     }
     
-    this.rs.saveReservation(reservation);
+    // Converti le date in stringhe formattate prima di inviare
+    const formattedReservation = {
+      ...reservation,
+      creationDate: this.formatDate(reservation.creationDate),
+      startDate: this.formatDate(reservation.startDate),
+      startPerformanceDate: this.formatDate(reservation.startPerformanceDate),
+      endPerformanceDate: this.formatDate(reservation.endPerformanceDate),
+      restaurantCheckIns: reservation.restaurantCheckIns.map(checkIn => ({
+        ...checkIn,
+        checkIn: this.formatDateTime(checkIn.checkIn)
+      }))
+    };
+
+    console.log('Formatted:', formattedReservation);
+
+    this.rs.saveReservation(formattedReservation).subscribe({
+      next: sr => console.log(sr),
+      error: e => console.log(e)
+    });
     this.router.navigate(['/reserved-package']);
   }
 
-
-
-  getPackageInfo():void{
+  getPackageInfo(): void {
     this.hcs.holidayPackage$.subscribe({
       next: (hPackage) => (this.holidayPackage = hPackage),
       error: (err) => console.log('errore nel passaggio di pacchetto', err),
@@ -126,6 +159,7 @@ export class PaymentComponent implements OnInit {
         next: (h) => {
           this.hotel = h;
           this.rs.setHotel(this.hotel);
+          this.initializeMap(this.hotel.latitude, this.hotel.longitude);
         },
         error: (err) => console.log('errore nel recupero hotel', err),
       });
@@ -140,4 +174,23 @@ export class PaymentComponent implements OnInit {
     }
   }
 
+  initializeMap(lat: number, lng: number): void {
+    
+    const todoMap = document.getElementById('map');
+    if (!this.map && todoMap) {
+      this.map = L.map(todoMap).setView([lat, lng], 17);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19
+      }).addTo(this.map);
+      this.marker = L.marker([lat, lng]).addTo(this.map);
+    } else if (this.map) {
+      this.map.setView([lat, lng], 13);
+      this.marker.setLatLng([lat, lng]);
+    }
+    if (todoMap) {
+      todoMap.style.display = 'block';
+      this.map.invalidateSize();
+    }
+  }
 }

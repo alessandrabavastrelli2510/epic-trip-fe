@@ -29,7 +29,8 @@ export class ReservationService {
 
   constructor(private http: HttpClient) { }
 
-  saveReservation(reservation: ReservationModel): Observable<ReservationModel>{
+  saveReservation(reservation: any): Observable<ReservationModel>{
+    console.log("METODO CHIAMATO: ", reservation);
     return this.http.post<ReservationModel>(this.reservationUrl, reservation);
   }
 

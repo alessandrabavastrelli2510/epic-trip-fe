@@ -22,5 +22,5 @@ export const routes: Routes = [
     {path: 'attraction', component: AttractionVisitCardComponent},
     {path: 'reserved-package', component: ReservedPackageComponent},
     {path: 'about-us', component: AboutUsComponent},
-    {path: 'faq', component: FaqComponent}
+    {path: 'faq', component: FaqComponent},
 ];
