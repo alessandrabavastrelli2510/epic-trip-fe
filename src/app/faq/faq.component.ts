@@ -24,7 +24,13 @@ export class FaqComponent implements OnInit {
     })
   
   }
+  toggleAnswer(faq: Faq): void {
+    this.faqs.forEach(f => {
+      if (f !== faq) {
+        f.showAnswer = false;
+      }
+    });
+    faq.showAnswer = !faq.showAnswer;
+  }
   
-
-
 }

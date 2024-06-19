@@ -5,11 +5,12 @@ body {
 }
 
 
-h1 {
+#title {
     color: rgb(0, 0, 0);
-    font-size: 3em;
+    font-size: 40px;
     display: flex;
-    justify-content: center
+    justify-content: center;
+    margin: 20px;
 }
 
 main {
@@ -29,5 +30,18 @@ article.content {
 }
 
 #img{
-    width: 15%;
+    width: 12%;
+}
+
+#about-us{
+    width: 60%;
+    margin-left: 150px;
+    margin-right: 150px;
+    text-align: center;
+    font-size: 18px;
+}
+
+#about-us-container{
+    display: flex;
+    justify-content: center;
 }
