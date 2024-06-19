@@ -1,9 +1,14 @@
 @if (holidayPackage) {
-<article>
+<article id="card">
+  <div class="card-effect">
+    <div class="card-effect-inner">
+      <div class="card-effect-front">
+  <img src="assets/images/packages/{{ holidayPackage.imagePath }}" alt="" />
+  </div>
+  <div class="card-effect-back">
   <h3>{{ holidayPackage.title }}</h3>
   <p>{{ holidayPackage.city }} , {{ holidayPackage.country }}</p>
-  <p>{{ holidayPackage.description }}</p>
-  <img src="assets/images/packages/{{ holidayPackage.imagePath }}" alt="" />
+  <p class="description">{{ holidayPackage.description }}</p>
   <ol>
     @for (av of holidayPackage.attractionVisits; track av.id){
     <li>
@@ -11,15 +16,20 @@
     </li>
     }
   </ol>
+  </div>
+  </div>
+  </div>
+  </article>
+  <article id="card">
   <div>
-    <span>ristoranti</span>
+    <h3>Ristoranti</h3>
     @for (r of restaurants; track r.id){
     <p>{{ r.name }}</p>
     }
   </div>
   @if(hotel){
   <div>
-    <span>hotel</span>
+    <h3>Hotel</h3>
     <p (click)="initializeMap(hotel.latitude, hotel.longitude)">{{ hotel.name }}</p>
     @if(showMap){
       <div id="map" style="height: 400px; width: 100%;"></div>
@@ -27,15 +37,17 @@
     
   </div>
   }
+</article>
   @if(guide){
+    <article id="card">
     <div>
       <span>Guida</span>
       <p>{{ guide.firstname }}</p>
       <img src="/assets/images/guide/{{guide.image}}" alt="">
       <p>{{guide.introduction}}</p>
     </div>
+  </article>
     }
-</article>
 } @else {
 <div class="no-package-wrapper">
   <p>Nessun pacchetto trovato!</p>

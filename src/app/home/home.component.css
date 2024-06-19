@@ -9,6 +9,7 @@ body {
 h1, h2 {
     color: #ff7e5f;
     text-align: center;
+    padding: 30px
 }
 
 #features, #dynamic-content {
@@ -23,6 +24,7 @@ h1, h2 {
     margin: 20px auto;
     max-width: 1200px;
     text-align: center;
+    padding-bottom: 80px;
 }
 
 .feature-container {
