@@ -1,16 +1,23 @@
-<div>
-  <p>La nostra proposta di ospitalità: </p>
-  <p>{{hotel?.name}}</p>
-  <p>{{hotel?.street}} {{hotel?.houseNumber}} {{hotel?.city}}</p>
-  <p>Camera doppia e singola deluxe!</p>
-  <div id="map" style="height: 400px; width: 100%;"></div>
+<div id="card-container">
+  <div id="attraction-name">La nostra proposta di ospitalità:</div>
+  <div id="attraction-desc">
+    <h3>{{hotel?.name}}</h3>
+    <p>{{hotel?.street}} {{hotel?.houseNumber}} {{hotel?.city}}</p>
+    <p>Camera doppia e singola deluxe!</p>
+  </div>
+  <div class="img">
+    <div id="map"></div>
+  </div>
 </div>
-<div>
-  <p>Per gustarsi al meglio proponiamo i seguenti ristoranti: </p>
-  @for (r of restaurants; track r.id) {
-    <p>{{r.name}}</p>
-    <p>{{r.street}} {{r.houseNumber}}</p>
-  }
+
+<div id="card-container">
+  <div id="attraction-name">Per gustarsi al meglio proponiamo i seguenti ristoranti:</div>
+  <div id="attraction-desc">
+    @for (r of restaurants; track r.id) {
+      <h3>{{r.name}}</h3>
+      <p>{{r.street}} {{r.houseNumber}}</p>
+    }
+  </div>
 </div>
 
 <div class="model">
