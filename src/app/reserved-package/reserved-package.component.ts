@@ -73,7 +73,7 @@ export class ReservedPackageComponent implements OnInit {
 
     const todoMap = document.getElementById('map');
     if (!this.map && todoMap) {
-      this.map = L.map(todoMap).setView([lat, lng], 17);
+      this.map = L.map(todoMap).setView([lat, lng], 19);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19
@@ -90,7 +90,7 @@ export class ReservedPackageComponent implements OnInit {
 
   updateMap(lat: number, lng: number): void {
     if (this.map) {
-      this.map.setView([lat, lng], 13);
+      this.map.setView([lat, lng], 19);
       if (this.marker) {
         this.marker.setLatLng([lat, lng]);
       } else {

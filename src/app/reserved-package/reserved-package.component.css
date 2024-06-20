@@ -260,6 +260,43 @@ li p:last-child {
     font-size: 30px;
 }
 
-#restaurant-card{
-    height: 600px;
+#restaurant-card {
+    height: auto;
+    max-height: 800px; 
+    overflow: auto; 
+    padding: 20px; 
+}
+
+#map-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-left: 40px;
+}
+
+#map {
+    height: 200px;
+    width: 600px;
+    border-radius: 8px;
+}
+
+.address-text {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.back-content{
+    height: fit-content;
+}
+
+#restaurants{
+    cursor: pointer;
+}
+
+#restaurants:hover{
+    color: brown;
 }
