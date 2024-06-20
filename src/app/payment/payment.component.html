@@ -3,7 +3,6 @@
   <div id="attraction-desc">
     <h3>{{hotel?.name}}</h3>
     <p>{{hotel?.street}} {{hotel?.houseNumber}} {{hotel?.city}}</p>
-    <p>Camera doppia e singola deluxe!</p>
   </div>
   <div class="img">
     <div id="map"></div>
@@ -11,7 +10,7 @@
 </div>
 
 <div id="card-container">
-  <div id="attraction-name">Per gustarsi al meglio proponiamo i seguenti ristoranti:</div>
+  <div id="attraction-name">Per questa esperienza proponiamo i seguenti ristoranti:</div>
   <div id="attraction-desc">
     @for (r of restaurants; track r.id) {
       <h3>{{r.name}}</h3>

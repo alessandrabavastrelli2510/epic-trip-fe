@@ -23,7 +23,11 @@ export class HolidayPackageService {
   private surveyUrl = 'http://localhost:8080/survey';
   constructor(private http: HttpClient) {
 
-    }
+  }
+
+  saveSurveyAnswers(answers: Answer[]): Observable<Answer[]>{
+    return this.http.post<Answer[]>(`${this.surveyUrl}`, answers);
+  }
 
   getCities() :void{
     this.http.get<string[]>(`${this.packageUrl}/city`).subscribe({
@@ -33,26 +37,16 @@ export class HolidayPackageService {
   }
 
   getPackagesByCity(city: string): Observable<HolidayPackage[]> {
-    //let url = `${this.packageUrl}?city=${city}`;
-    //return this.http.get<HolidayPackage[]>(url);
     return this.http.get<HolidayPackage[]>(`${this.packageUrl}?city=${city}`);
   }
 
   getTypes(): Observable<string[]>{
     return this.http.get<string[]>(`${this.packageUrl}/type`);
   }
-  // getQuestions(): Observable<Questions[]>{
-  //   const token = localStorage.getItem('token');
-  //   let headers = new HttpHeaders();
-  //   if(token){
-  //     headers = headers.set('Authorization', `Bearer ${token}`);
-  //   }
-  //   return this.http.get<Questions[]>(this.surveyUrl,{headers});
-  // }
+
   getQuestions(): Observable<Questions[]>{
     return this.http.get<Questions[]>(this.surveyUrl);
   }
-  
 
   getPackageByAnswers(answers: SurveyModel): Observable<HolidayPackage>{
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -76,7 +70,4 @@ export class HolidayPackageService {
     return this.http.get<Guide>(`${this.packageUrl}/${city.replace(" ", "%20")}/guide`);
   }
 
-  saveSurveyAnswers(answers: Answer[]): Observable<Answer[]>{
-    return this.http.post<Answer[]>(`${this.surveyUrl}`, answers);
-  }
 }

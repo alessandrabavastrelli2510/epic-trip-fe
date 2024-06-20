@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HolidayPackage } from '../model/holiday-package.model';
 import { HolidayCardComponent } from '../holiday-card/holiday-card.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-holiday-package-list',
@@ -24,7 +25,8 @@ export class HolidayPackageListComponent implements OnInit{
   constructor(
     private holidayPackageService: HolidayPackageService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ){
     const navigation = this.router.getCurrentNavigation();
     if(navigation?.extras.state){
@@ -34,21 +36,10 @@ export class HolidayPackageListComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // this.holidayPackageService.getCities().subscribe({
-    //   next: (data => this.cities = data),
-    //   error: (error => console.log(error)),
-    //   complete: (() => console.log("tutto fatto!"))
-    // });
 
     this.holidayPackageService.cities$.subscribe(cities => this.cities = cities);
     this.holidayPackageService.getCities();
     
-    // this.holidayPackageService.getTypes().subscribe({
-    //   next: (data => this.types = data),
-    //   error: (error => console.log(error)),
-    //   complete: (() => console.log("tutto bene!"))
-    // });
-
     if(this.city){
       this.searchPackagesByCity(this.city);
     }  
@@ -67,5 +58,9 @@ export class HolidayPackageListComponent implements OnInit{
   onSubmit(form: NgForm): void{
     this.searchPackagesByCity(form.value.city);
     this.showResult = true;
+  }
+  
+  goBackToHome(): void{
+    this.location.back();
   }
 }

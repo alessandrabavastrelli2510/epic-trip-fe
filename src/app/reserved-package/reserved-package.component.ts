@@ -27,6 +27,8 @@ export class ReservedPackageComponent implements OnInit {
   hotel: Hotel | undefined;
   guide: Guide | undefined;
   showMap: boolean = false;
+  street: string | undefined;
+  houseNumber: number | undefined;
 
   constructor(
     private hcs: HolidayCardService,
@@ -63,7 +65,9 @@ export class ReservedPackageComponent implements OnInit {
     }
   }
 
-  showMapFunction(lat: number, lng: number): void {
+  showMapFunction(lat: number, lng: number, street: string, houseNumber: number): void {
+    this.street = street;
+    this.houseNumber = houseNumber;
     this.showMap = true;
     this.cdr.detectChanges(); // Forza il rilevamento delle modifiche
 

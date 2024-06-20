@@ -113,7 +113,13 @@ export class SurveyComponent implements OnInit{
 
     const fullAnswers: Answer[] = [cityAnswer, numPeopleAnswer, startDateAnswer, packageDurationAnswer,
                                     packageTypeAnswer, priceRangeAnswer];
-
+    
+    this.holidayPackageService.saveSurveyAnswers(fullAnswers).subscribe({
+      next: as => console.log(as),
+      error: e => console.log(e)
+    })
+    
+    
     const answers : SurveyModel = {
       city : form.value.cities,
       numPeople : form.value.numPeople,
@@ -122,12 +128,8 @@ export class SurveyComponent implements OnInit{
       packageType: form.value.types,
       priceRange: form.value.cost
     };
-    
-    this.holidayPackageService.saveSurveyAnswers(fullAnswers).subscribe({
-      next: as => console.log(as),
-      error: e => console.log(e)
-    })
-    
+
+
     this.holidayPackageService.getPackageByAnswers(answers).subscribe({
       next: pack => {
         this.holidayPackage = pack;
